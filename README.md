@@ -27,4 +27,4 @@ pip install nba_api
 ```
 - Run the python scripts (scripts (Ingestion)) in your terminal or editor of choice. I'm using VS code. 
   - This will ingest data from various NBA API endpoints and return them as CSVs
-- Use SnowSQL to store data as tables in Snowflake. You can use the file I provided, or you can follow along with Phil Dakin's excellent [SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178)https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178. 
+- Use SnowSQL to store data as tables in Snowflake. You can use the file I provided, or you can follow along with [Phil Dakin's](https://www.linkedin.com/in/phildakin/) excellent [SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178)https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178. 
