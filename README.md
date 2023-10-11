@@ -1,13 +1,13 @@
 # NBA
 Using the official NBA API, this repo explains how to ingest, store, transform, and serve insights
 
-#Overview
+# Overview
 This is an ongoing project. As of today, this project only provides instructions for:
 - Data Ingestion
 - Data Storage
 
-##Weekly repo updates schedule
-- Week 1:
+# Weekly repo updates schedule
+- # Week 1:
   -  Data Ingestion:
     -  Pulling data from the [NBA API](https://github.com/swar/nba_api) via Python Scripts
     -  Export data as .csvs
@@ -18,8 +18,7 @@ This is an ongoing project. As of today, this project only provides instructions
 - Week 3:
   - Serve insights in a BI tool
 
-
- #Requirements
+# Requirements
 - Install Python on your system. I'm using python 3.11, but it's not required.
 - Install the nba_api package using pip, run the following command:
 ```
