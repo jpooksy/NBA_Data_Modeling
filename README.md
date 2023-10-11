@@ -6,7 +6,7 @@ This is an ongoing project. As of today, this project only provides instructions
 - Data Ingestion
 - Data Storage
 
-#Weekly repo updates schedule
+##Weekly repo updates schedule
 - Week 1:
   -  Data Ingestion:
     -  Pulling data from the [NBA API](https://github.com/swar/nba_api) via Python Scripts
