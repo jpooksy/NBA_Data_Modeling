@@ -33,5 +33,17 @@ This is an ongoing project. As of today, this project only provides instructions
 pip install nba_api
 ```
 - Run the python scripts (nba_scripts) in your terminal or editor of choice. I'm using VSCode. 
-  - This will ingest data from various NBA API endpoints and return them as CSVs
-- Use SnowSQL to store data as tables in Snowflake. You reference the code in "SnowSQL code", or you can follow along with [Phil Dakin's](https://www.linkedin.com/in/phildakin/) excellent [SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178)
+  - These scripts will ingest data from various NBA API endpoints and return them as CSVs. Once executed, you should have the following .csv files downloaded within     nba_scripts:
+| File Name                    | Description                                       |
+| ---------------------------- | ------------------------------------------------- |
+| common_player_info.csv       | Info on each player from the 2022 NBA season     |
+| games.csv                    | Stats from each game played during 2022 season   |
+| player_game_logs.csv         | Player statistics per game in the 2022 NBA season|
+| player_salaries_output.csv   | Player salaries for the 2022 NBA season          |
+| team_game_logs.csv           | Team game statistics for the 2022 NBA season     |
+| team_salaries.csv            | Team salaries for the 2022 NBA season            |
+| team_year_by_year_stats.csv  | Year-by-year stats for each team in 2022 season |
+| teams.csv                    | Information about each team in the 2022 season   |
+
+- Use SnowSQL to store data as tables in Snowflake. You reference the code in "setup_Snowflake_database_with_SnowSQL", or you can follow along with [Phil Dakin's](https://www.linkedin.com/in/phildakin/) excellent [SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178)m
+  - 
