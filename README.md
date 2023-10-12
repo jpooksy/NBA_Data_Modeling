@@ -32,8 +32,7 @@ This is an ongoing project. As of today, this project only provides instructions
 ```
 pip install nba_api
 ```
-- Run the python scripts (nba_scripts) in your terminal or editor of choice. I'm using VSCode. 
-  - These scripts will ingest data from various NBA API endpoints and return them as CSVs. Once executed, you should have the following .csv files downloaded within     nba_scripts:
+- Run the python scripts (nba_scripts) in your terminal or editor of choice. I'm using VSCode. These scripts will ingest data from various NBA API endpoints and return them as CSVs. Once executed, you should have the following .csv files downloaded within your "nba_scripts" folder:
   - **common_player_info.csv**: Info on each player from the 2022 NBA season.
   - **games.csv**: Stats from each game played during the 2022 NBA season.
   - **player_game_logs.csv**: Detailed stats per player per game from the 2022 NBA season.
