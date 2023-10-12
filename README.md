@@ -13,8 +13,8 @@ This is an ongoing project. As of today, this project only provides instructions
     -  Export data as .csvs
   -  Data Storage
     -  Use [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) or [Snowflake Web Interface](https://docs.snowflake.com/en/user-guide/data-load-web-ui) to load data into Snowflake as Tables
-- ## Week 2: Data Transformation
-  - Use Paradime and dbt to model data
+- ## Week 2:
+  - dbt data Transformations. Using Paradime for data transformations. 
 - ## Week 3:
   - Serve insights in a BI tool
 - ## Week 4:
