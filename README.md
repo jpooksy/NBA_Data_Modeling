@@ -56,6 +56,8 @@ Run the Python scripts located in the `nba_scripts` directory in your terminal o
 - `team_year_by_year_stats.csv`: Year-by-year statistics for each team during the 2022 NBA season.
 - `teams.csv`: Information about each team from the 2022 NBA season.
 
+Note: If you get stuck, you can download the `nba_compressed_CSVs` and more on to the next step - Data Storage
+
 ## Data Storage
 
 Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `setup_Snowflake_database_with_SnowSQL` file or follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
