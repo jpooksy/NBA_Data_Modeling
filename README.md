@@ -41,5 +41,6 @@ pip install nba_api
   - **team_salaries.csv**: Salary information for each team during the 2022 NBA season.
   - **team_year_by_year_stats.csv**: Year-by-year statistics for each team during the 2022 NBA season.
   - **teams.csv**: Information about each team from the 2022 NBA season.
+
 - Use SnowSQL to store data as tables in Snowflake. You reference the code in "setup_Snowflake_database_with_SnowSQL", or you can follow along with [Phil Dakin's](https://www.linkedin.com/in/phildakin/) excellent [SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178)m
   - 
