@@ -12,7 +12,7 @@ This is an ongoing project. As of today, this project only provides instructions
     -  Pulling data from the [NBA API](https://github.com/swar/nba_api) via Python Scripts
     -  Export data as .csvs
   -  Data Storage
-    -  Use [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to load data into Snowflake snowflake Tables
+    -  Use [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) or [Snowflake Web Interface](https://docs.snowflake.com/en/user-guide/data-load-web-ui) to load data into Snowflake as Tables
 - ## Week 2: Data Transformation
   - Use Paradime and dbt to model data
 - ## Week 3:
