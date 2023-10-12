@@ -58,4 +58,4 @@ Run the Python scripts located in the `nba_scripts` directory in your terminal o
 
 ## Data Storage
 
-Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `setup_Snowflake_database_with_SnowSQL` folder or follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
+Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `setup_Snowflake_database_with_SnowSQL` file or follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
