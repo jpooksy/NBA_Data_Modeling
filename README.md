@@ -1,5 +1,5 @@
 # NBA
-This repository provides a guide on how to ingest, store, transform, and analyze data from the official NBA API.
+This repository provides a guide on how to extract, store, transform, and analyze data from the official NBA API.
 
 # Overview
 This is an ongoing project that aims to cover various aspects of NBA data analysis. As of today, this project provides instructions for:
