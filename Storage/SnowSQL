@@ -1,0 +1,233 @@
+jparkerrogers@Js-MacBook-Pro ~ % snowsql -a <account_name> -u <username>
+Password: <enter_password>
+* SnowSQL * v1.2.28
+Type SQL statements or !help
+PARKERROGERS#COMPUTE_WH@(no database).(no schema)>create database nba_demo_snowflake;
++---------------------------------------------------+                           
+| status                                            |
+|---------------------------------------------------|
+| Database NBA_DEMO_SNOWFLAKE successfully created. |
++---------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.335s
+PARKERROGERS#COMPUTE_WH@NBA_DEMO_SNOWFLAKE.PUBLIC>use warehouse transforming;
++----------------------------------+                                            
+| status                           |
+|----------------------------------|
+| Statement executed successfully. |
++----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.197s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>create file format csv_basic type=csv parse_header=true;
++---------------------------------------------+                                 
+| status                                      |
+|---------------------------------------------|
+| File format CSV_BASIC successfully created. |
++---------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.261s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>create stage nba_demo_snowflake_stage;
++-----------------------------------------------------------+                   
+| status                                                    |
+|-----------------------------------------------------------|
+| Stage area NBA_DEMO_SNOWFLAKE_STAGE successfully created. |
++-----------------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.271s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>put file:///Users/jparkerrogers/Desktop/nba_scripts/common_player_info.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/games.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/player_game_logs.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/player_salaries_output.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/team_salaries.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/team_year_by_year_stats.csv @nba_demo_snowflake_stage;
+                                                    put file:///Users/jparkerrogers/Desktop/nba_scripts/teams.csv @nba_demo_snowflake_stage;
++------------------------+---------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                 | target                    | source_size | target_size | source_compression | target_compression | status   | message |
+|------------------------+---------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| common_player_info.csv | common_player_info.csv.gz |       71289 |       18112 | NONE               | GZIP               | UPLOADED |         |
++------------------------+---------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 2.347s
++-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source    | target       | source_size | target_size | source_compression | target_compression | status   | message |
+|-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| games.csv | games.csv.gz |      350439 |       81152 | NONE               | GZIP               | UPLOADED |         |
++-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 2.076s
++----------------------+-------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source               | target                  | source_size | target_size | source_compression | target_compression | status   | message |
+|----------------------+-------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| player_game_logs.csv | player_game_logs.csv.gz |     8906428 |     1937952 | NONE               | GZIP               | UPLOADED |         |
++----------------------+-------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 4.872s
++----------------------------+-------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                     | target                        | source_size | target_size | source_compression | target_compression | status   | message |
+|----------------------------+-------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| player_salaries_output.csv | player_salaries_output.csv.gz |       38142 |       14128 | NONE               | GZIP               | UPLOADED |         |
++----------------------------+-------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 1.047s
++-------------------+----------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source            | target               | source_size | target_size | source_compression | target_compression | status   | message |
+|-------------------+----------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| team_salaries.csv | team_salaries.csv.gz |         988 |         672 | NONE               | GZIP               | UPLOADED |         |
++-------------------+----------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 0.676s
++-----------------------------+--------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source                      | target                         | source_size | target_size | source_compression | target_compression | status   | message |
+|-----------------------------+--------------------------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| team_year_by_year_stats.csv | team_year_by_year_stats.csv.gz |        5115 |        2432 | NONE               | GZIP               | UPLOADED |         |
++-----------------------------+--------------------------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 1.096s
++-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------+
+| source    | target       | source_size | target_size | source_compression | target_compression | status   | message |
+|-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------|
+| teams.csv | teams.csv.gz |        1967 |         928 | NONE               | GZIP               | UPLOADED |         |
++-----------+--------------+-------------+-------------+--------------------+--------------------+----------+---------+
+1 Row(s) produced. Time Elapsed: 1.077s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>            LOCATION => '@nba_demo_snowflake_stage/player_game_logs.csv',
+                                                                FILE_FORMAT => 'csv_basic'
+                                                            )
+                                                        )
+                                                    );
+
+                                                    CREATE TABLE player_salaries_output
+                                                    USING TEMPLATE (
+                                                        SELECT ARRAY_AGG(OBJECT_CONSTRUCT(*))
+                                                        WITHIN GROUP (ORDER BY order_id)
+                                                        FROM TABLE(
+                                                            INFER_SCHEMA(
+                                                                LOCATION => '@nba_demo_snowflake_stage/player_salaries_output.csv',
+                                                                FILE_FORMAT => 'csv_basic'
+                                                            )
+                                                        )
+                                                    );
+
+                                                    CREATE TABLE team_salaries
+                                                    USING TEMPLATE (
+                                                        SELECT ARRAY_AGG(OBJECT_CONSTRUCT(*))
+                                                        WITHIN GROUP (ORDER BY order_id)
+                                                        FROM TABLE(
+                                                            INFER_SCHEMA(
+                                                                LOCATION => '@nba_demo_snowflake_stage/team_salaries.csv',
+                                                                FILE_FORMAT => 'csv_basic'
+                                                            )
+                                                        )
+                                                    );
+
+                                                    CREATE TABLE team_year_by_year_stats
+                                                    USING TEMPLATE (
+                                                        SELECT ARRAY_AGG(OBJECT_CONSTRUCT(*))
+                                                        WITHIN GROUP (ORDER BY order_id)
+                                                        FROM TABLE(
+                                                            INFER_SCHEMA(
+                                                                LOCATION => '@nba_demo_snowflake_stage/team_year_by_year_stats.csv',
+                                                                FILE_FORMAT => 'csv_basic'
+                                                            )
+                                                        )
+                                                    );
+
+                                                    CREATE TABLE teams
+                                                    USING TEMPLATE (
+                                                        SELECT ARRAY_AGG(OBJECT_CONSTRUCT(*))
+                                                        WITHIN GROUP (ORDER BY order_id)
+                                                        FROM TABLE(
+                                                            INFER_SCHEMA(
+                                                                LOCATION => '@nba_demo_snowflake_stage/teams.csv',
+                                                                FILE_FORMAT => 'csv_basic'
+                                                            )
+                                                        )
+                                                    );
+
++------------------------------------------------+                              
+| status                                         |
+|------------------------------------------------|
+| Table COMMON_PLAYER_INFO successfully created. |
++------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 1.544s
++-----------------------------------+                                           
+| status                            |
+|-----------------------------------|
+| Table GAMES successfully created. |
++-----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.900s
++----------------------------------------------+                                
+| status                                       |
+|----------------------------------------------|
+| Table PLAYER_GAME_LOGS successfully created. |
++----------------------------------------------+
+1 Row(s) produced. Time Elapsed: 3.194s
++----------------------------------------------------+                          
+| status                                             |
+|----------------------------------------------------|
+| Table PLAYER_SALARIES_OUTPUT successfully created. |
++----------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.638s
++-------------------------------------------+                                   
+| status                                    |
+|-------------------------------------------|
+| Table TEAM_SALARIES successfully created. |
++-------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.597s
++-----------------------------------------------------+                         
+| status                                              |
+|-----------------------------------------------------|
+| Table TEAM_YEAR_BY_YEAR_STATS successfully created. |
++-----------------------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.411s
++-----------------------------------+                                           
+| status                            |
+|-----------------------------------|
+| Table TEAMS successfully created. |
++-----------------------------------+
+1 Row(s) produced. Time Elapsed: 0.611s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>COPY INTO common_player_info FROM @nba_demo_snowflake_stage/common_player_info.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO games FROM @nba_demo_snowflake_stage/games.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO player_game_logs FROM @nba_demo_snowflake_stage/player_game_logs.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO player_salaries_output FROM @nba_demo_snowflake_stage/player_salaries_output.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO team_salaries FROM @nba_demo_snowflake_stage/team_salaries.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO team_year_by_year_stats FROM @nba_demo_snowflake_stage/team_year_by_year_stats.csv FILE_FORMAT=(SKIP_HEADER = 1);
+                                                    COPY INTO teams FROM @nba_demo_snowflake_stage/teams.csv FILE_FORMAT=(SKIP_HEADER = 1);
+
++----------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                               | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|----------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/common_player_info.csv.gz | LOADED |         535 |         535 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++----------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 1.520s
++---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                  | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/games.csv.gz | LOADED |        2460 |        2460 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.837s
++--------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                             | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|--------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/player_game_logs.csv.gz | LOADED |       25894 |       25894 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++--------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 1.498s
++--------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                   | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|--------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/player_salaries_output.csv.gz | LOADED |         596 |         596 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++--------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.824s
++-----------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                          | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|-----------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/team_salaries.csv.gz | LOADED |          30 |          30 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++-----------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.630s
++---------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                                    | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|---------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/team_year_by_year_stats.csv.gz | LOADED |          30 |          30 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++---------------------------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.592s
++---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+| file                                  | status | rows_parsed | rows_loaded | error_limit | errors_seen | first_error | first_error_line | first_error_character | first_error_column_name |
+|---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------|
+| nba_demo_snowflake_stage/teams.csv.gz | LOADED |          30 |          30 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
++---------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
+1 Row(s) produced. Time Elapsed: 0.620s
+PARKERROGERS#TRANSFORMING@NBA_DEMO_SNOWFLAKE.PUBLIC>
+
+
+
+
+
