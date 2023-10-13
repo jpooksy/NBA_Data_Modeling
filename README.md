@@ -4,16 +4,19 @@ This repository provides a guide on how to ingest, store, transform, and analyze
 # Overview
 This is an ongoing project that aims to cover various aspects of NBA data analysis. As of today, this project provides instructions for:
 
-- Extract
-- Storage
-
-# Weekly repo updates schedule
-- **Week 1**:
-  - **Data Ingestion**:
+  - **Data Extraction**:
     - Pulling data from the [NBA API](https://github.com/swar/nba_api) using Python scripts.
     - Exporting data as .csv files.
   - **Data Storage**:
-    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) or the [Snowflake Web Interface](https://docs.snowflake.com/en/user-guide/data-load-web-ui) to load data into Snowflake as tables.
+    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store data as tables in Snowflake.
+
+# Weekly repo updates schedule
+- **Week 1**:
+  - **Data Extraction**:
+    - Pulling data from the [NBA API](https://github.com/swar/nba_api) using Python scripts.
+    - Exporting data as .csv files.
+  - **Data Storage**:
+    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store data as tables in Snowflake.
 
 - **Week 2**:
   - **Data Transformations**:
