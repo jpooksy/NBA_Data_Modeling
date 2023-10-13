@@ -8,7 +8,7 @@ This is an ongoing project that aims to cover various aspects of NBA data analys
     - Pulling data from the [NBA API](https://github.com/swar/nba_api) using Python scripts.
     - Exporting data as .csv files.
   - **Data Storage**:
-    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store data as tables in Snowflake.
+    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store .csv files as tables in Snowflake
 
 # Weekly repo updates schedule
 - **Week 1**:
