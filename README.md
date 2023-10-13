@@ -10,33 +10,6 @@ This is an ongoing project that aims to cover various aspects of NBA data analys
   - **Data Storage**:
     - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store .csv files as tables in Snowflake
 
-# Weekly repo updates schedule
-- **Week 1**:
-  - **Data Extraction**:
-    - Pulling data from the [NBA API](https://github.com/swar/nba_api) using Python scripts.
-    - Exporting data as .csv files.
-  - **Data Storage**:
-    - Using [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to store data as tables in Snowflake.
-
-- **Week 2**:
-  - **Data Transformations**:
-    - Using Paradime for data transformations.
-
-- **Week 3**:
-  - **Serve Insights in a BI Tool**.
-
-- **Week 4**:
-  - Creating scheduled dbt runs to ensure NBA 2023 season data is always up to date.
-
-- **Week 5**:
-  - Implementing CI/CD.
-
-- **Week 7**:
-  - Adding NBA play-by-play data to calculate historical [RAPM](https://medium.com/@johnchenmbb/calculating-rapm-steps-1-and-2-of-my-summer-plan-1a78e1476b1f).
-
-- **Week 8**:
-  - TBD!
-
 # Requirements
 Before getting started, make sure you have the following requirements in place:
 
