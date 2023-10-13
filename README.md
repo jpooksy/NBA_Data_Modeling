@@ -21,7 +21,7 @@ pip install nba_api
 
 ## Data Ingestion
 
-Run the Python scripts located in the `nba_scripts` directory in your terminal or code editor of choice. These scripts will ingest data from various NBA API endpoints and save them as CSV files. Once executed, you will find the following CSV files in your `nba_scripts` folder:
+Run the Python scripts located in the `extract` directory in your terminal or code editor of choice. These scripts will ingest data from various NBA API endpoints and save them as CSV files. Once executed, you will find the following CSV files in your `nba_scripts` folder:
 
 - `common_player_info.csv`: Information on each player from the 2022 NBA season.
 - `games.csv`: Statistics from each game played during the 2022 NBA season.
@@ -36,4 +36,4 @@ Note: If you get stuck, you can download the `nba_compressed_CSVs` and more on t
 
 ## Data Storage
 
-Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `SnowSQL` file I provided or you can follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
+Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `storage` file I provided or you can follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
