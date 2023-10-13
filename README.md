@@ -21,7 +21,7 @@ pip install nba_api
 
 ## Data Ingestion
 
-Run the Python scripts located in the `extract` directory in your terminal or code editor of choice. These scripts will ingest data from various NBA API endpoints and save them as CSV files. Once executed, you will find the following CSV files in your `nba_scripts` folder:
+Run the Python scripts located in the `extract` directory in your terminal or code editor of choice. These scripts will ingest data from various NBA API endpoints and save them as CSV files. Once executed, you will find the following CSV files in your `extract` folder:
 
 - `common_player_info.csv`: Information on each player from the 2022 NBA season.
 - `games.csv`: Statistics from each game played during the 2022 NBA season.
