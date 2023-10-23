@@ -37,3 +37,7 @@ Note: If you get stuck, you can download the `nba_compressed_CSVs` and more on t
 ## Data Storage
 
 Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `storage` file I provided or you can follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
+
+## Data Modeling
+
+Using Paradime.io of the dbt platform of your choice to run the following .SQL files in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models)https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models folder: 
