@@ -40,6 +40,14 @@ Use SnowSQL to store data as tables in Snowflake. You can reference the code in 
 
 ## Data Modeling
 
-Using Paradime.io of the dbt platform of your choice to run the following .SQL files in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models) folder:
-- Sources:
-  - 
+Using Paradime.io, or whichever platform/IDE you use for dbt, to run the following .SQL files in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models) folder:
+
+- [Sources](https://github.com/jpooksy/NBA_Data_Modeling/tree/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging):
+  - [source_player_game_logs.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_player_game_logs.sql): stats and details on every game from the 2022-23 nba season
+  - [source_player_salaries.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_player_salaries.sql): details on individual player salaries from the 2022-23 season and beyond.
+  - [source_team_salaries.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_team_salaries.sql): details on individual team salaries during the 2022-23 season.
+ 
+- Warehouse:
+  - [fct_player_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_player_season_stats.sql): Aggregate stats per player during the 2022-23 season.
+  - [fct_team_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_team_season_stats.sql): Aggregate stats per nba team during the 2022-23 NBA season.
+  -   - [fct_opponent_stats_per_team.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_opponent_stats_per_team.sql): Aggregate stats of all the opponents stats per NBA team during the 2022-23 season.
