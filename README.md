@@ -50,4 +50,4 @@ Using Paradime.io, or whichever platform/IDE you use for dbt, to run the followi
 - Warehouse:
   - [fct_player_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_player_season_stats.sql): Aggregate stats per player during the 2022-23 season.
   - [fct_team_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_team_season_stats.sql): Aggregate stats per nba team during the 2022-23 NBA season.
-  -   - [fct_opponent_stats_per_team.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_opponent_stats_per_team.sql): Aggregate stats of all the opponents stats per NBA team during the 2022-23 season.
+  - [fct_opponent_stats_per_team.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_opponent_stats_per_team.sql): Aggregate stats of all the opponents stats per NBA team during the 2022-23 season.
