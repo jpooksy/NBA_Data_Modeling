@@ -38,6 +38,7 @@ select
     ps.player_id,
     ps.player_name,
     s."2022_23_salary",
+    ps.total_mins_played,
     s."2022_23_salary" / nullif(ps.total_mins_played, 0) as salary_per_minute_played,
     s."2022_23_salary" / nullif(ps.games_played, 0) as salary_per_game_played,
     coalesce(ps.total_field_goals_made * 1.0 / nullif(ps.total_field_goals_attempted, 0), 0) as avg_field_goal_pct,
