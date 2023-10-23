@@ -40,4 +40,6 @@ Use SnowSQL to store data as tables in Snowflake. You can reference the code in 
 
 ## Data Modeling
 
-Using Paradime.io of the dbt platform of your choice to run the following .SQL files in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models)https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models folder: 
+Using Paradime.io of the dbt platform of your choice to run the following .SQL files in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models) folder:
+- Sources:
+  - 
