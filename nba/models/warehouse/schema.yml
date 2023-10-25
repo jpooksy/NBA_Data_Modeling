@@ -30,3 +30,59 @@ models:
     columns:
       - name: PLAYER_ID
         description: The unique id of an nba player
+      - name: PLAYER_NAME
+        description: The full name of an nba player
+      - name: 2022_23_salary
+        description: 'the 2022-23 salary of an nba player '
+      - name: TOTAL_MINS_PLAYED
+        description: the total minutes played by an NBA player during the 2022-23
+          nba season
+      - name: SALARY_PER_MINUTE_PLAYED
+        description: The salary per minute played during the 2022-23 NBA season
+      - name: SALARY_PER_GAME_PLAYED
+        description: The avg. salary per hame played during the 2022-23 nba season
+      - name: AVG_FIELD_GOAL_PCT
+        description: The avg. field goal percentage for an nba player during the 2022-23
+          nba season
+      - name: AVG_THREE_POINT_PCT
+        description: The avg. 3 points field goal percentage for an nba player during
+          the 2022-23 nba season
+      - name: AVG_FREE_THROW_PCT
+        description: the avg free throw percentage for an nba player during the 2022-23
+          nba season
+      - name: TOTAL_ASSISTS
+        description: the total assists for an nba player during the 2022-23 nba season
+      - name: AVG_ASSISTS_PER_GAME
+        description: the averages assists per game for an nba player during the 2022-23
+          nba season
+      - name: TOTAL_TURNOVERS
+        description: the total turnovers for an nba player during the 2022-23 nba
+          season
+      - name: AVG_TURNOVERS_PER_GAME
+        description: the average turnoers per game for an nba player during the 2022-23
+          nba season
+      - name: TOTAL_STEALS
+        description: the total steals for an nba player during the 2022-23 nba season
+      - name: TOTAL_BLOCKS
+        description: the total blocks for an nba player during the 2022-23 nba season
+      - name: TOTAL_BLOCK_ATTEMPTS
+        description: the total blocks attempted for an nba player during the 2022-23
+          nba season
+      - name: TOTAL_PERSONAL_FOULS
+        description: the total personal fouls committed for an nba player during the
+          2022-23 nba season
+      - name: TOTAL_PERSONAL_FOUL_DRAWN
+        description: the total personal fouls drawn for an nba player during the 2022-23
+          nba season
+      - name: TOTAL_POINTS
+        description: the total points scored for an nba player during the 2022-23
+          nba season
+      - name: AVG_POINTS_PER_GAME
+        description: the points per game for an nba player during the 2022-23 nba
+          season
+      - name: TOTAL_PLUS_MINUS
+        description: the total plus minus for an nba player during the 2022-23 nba
+          season
+      - name: AVERAGE_PLUS_MINUS
+        description: the average plus minus for an nba player during the 2022-23 nba
+          season
