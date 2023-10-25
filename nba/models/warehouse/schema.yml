@@ -2,40 +2,41 @@ version: 2
 models:
   - name: fct_player_season_stats
     description: "**Business Summary:**\n\nThe business summary of the model explanation\
-      \ is that it creates a database model to calculate various statistics for basketball\
-      \ players. The model retrieves data from two sources, aggregates player statistics,\
-      \ and joins it with salary information. The resulting statistics can be used\
-      \ to analyze and compare the performance and value of basketball players based\
-      \ on their salaries and on-court contributions.\n\n**Technical Summary:**\n\n\
-      The dbt model shown above is used to calculate various statistics for basketball\
-      \ players. It starts by gathering data from two sources: `source_player_game_logs`\
-      \ and `source_player_salaries`.\n\nThe model creates a temporary table called\
-      \ `playerstats` that aggregates player statistics, such as total minutes played,\
-      \ field goals made, three-pointers made, free throws made, rebounds, assists,\
-      \ turnovers, steals, blocks, personal fouls, points, and several others. These\
-      \ statistics are calculated by summing up the corresponding values for each\
-      \ player.\n\nAfter calculating the statistics, the model joins the `playerstats`\
-      \ table with the `source_player_salaries` table using the player's name as the\
-      \ matching column. This allows the model to retrieve the salary information\
-      \ for each player.\n\nThe final select statement in the model retrieves the\
-      \ player ID, player name, salary for the 2022-23 season, total minutes played,\
-      \ salary per minute played, salary per game played, average field goal percentage,\
-      \ average three-point percentage, average free throw percentage, total assists,\
-      \ average assists per game, total turnovers, average turnovers per game, total\
-      \ steals, total blocks, total block attempts, total personal fouls, total personal\
-      \ fouls drawn, total points, average points per game, total plus-minus, and\
-      \ average plus-minus.\n\nThese statistics can be used to analyze and compare\
-      \ the performance and value of basketball players based on their salaries and\
-      \ various on-court contributions."
+      \ is that the model calculates various statistics for basketball players based\
+      \ on their game logs and salaries throughout the 2022-23 NBA season. This provides\
+      \ a comprehensive set of statistics for each player, allowing for performance\
+      \ analysis and comparisons.\n\n**Technical Summary:**\n\nThe dbt model shown\
+      \ above calculates various statistics for basketball players based on their\
+      \ game logs and salaries. \n\nThe model first creates a temporary table called\
+      \ `playerstats` that aggregates the game statistics for each player. It calculates\
+      \ the total minutes played, field goals made and attempted, three-point shots\
+      \ made and attempted, free throws made and attempted, offensive and defensive\
+      \ rebounds, total rebounds, assists, turnovers, steals, blocks, block attempts,\
+      \ personal fouls, personal fouls drawn, points scored, plus-minus, games played,\
+      \ and games missed.\n\nThe model then performs a join operation between the\
+      \ `playerstats` table and a table called `source_player_salaries` to retrieve\
+      \ the salary information for each player. It selects the player ID, player name,\
+      \ 2022-23 salary, total minutes played, salary per minute played, salary per\
+      \ game played, average field goal percentage, average three-point percentage,\
+      \ average free throw percentage, total assists, average assists per game (calculated\
+      \ using the average function), total turnovers, average turnovers per game,\
+      \ total steals, total blocks, total block attempts, total personal fouls, total\
+      \ personal fouls drawn, total points, average points per game, total plus-minus,\
+      \ and average plus-minus (calculated using the average function).\n\nThe resulting\
+      \ query provides a comprehensive set of statistics for each player, allowing\
+      \ for performance analysis and comparisons."
     columns:
       - name: PLAYER_ID
         description: The unique id of an nba player
+        tests:
+          - unique
+          - not_null
       - name: PLAYER_NAME
         description: The full name of an nba player
       - name: 2022_23_salary
-        description: 'the 2022-23 salary of an nba player '
+        description: "the 2022-23 salary of an nba player "
       - name: TOTAL_MINS_PLAYED
-        description: the total minutes played by an NBA player during the 2022-23
+        description: the total minutes played by  an NBA player during the 2022-23
           nba season
       - name: SALARY_PER_MINUTE_PLAYED
         description: The salary per minute played during the 2022-23 NBA season
