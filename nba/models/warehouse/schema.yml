@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: fct_player_season_stats
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that it creates a database model to calculate various statistics for basketball\
+      \ players. The model retrieves data from two sources, aggregates player statistics,\
+      \ and joins it with salary information. The resulting statistics can be used\
+      \ to analyze and compare the performance and value of basketball players based\
+      \ on their salaries and on-court contributions.\n\n**Technical Summary:**\n\n\
+      The dbt model shown above is used to calculate various statistics for basketball\
+      \ players. It starts by gathering data from two sources: `source_player_game_logs`\
+      \ and `source_player_salaries`.\n\nThe model creates a temporary table called\
+      \ `playerstats` that aggregates player statistics, such as total minutes played,\
+      \ field goals made, three-pointers made, free throws made, rebounds, assists,\
+      \ turnovers, steals, blocks, personal fouls, points, and several others. These\
+      \ statistics are calculated by summing up the corresponding values for each\
+      \ player.\n\nAfter calculating the statistics, the model joins the `playerstats`\
+      \ table with the `source_player_salaries` table using the player's name as the\
+      \ matching column. This allows the model to retrieve the salary information\
+      \ for each player.\n\nThe final select statement in the model retrieves the\
+      \ player ID, player name, salary for the 2022-23 season, total minutes played,\
+      \ salary per minute played, salary per game played, average field goal percentage,\
+      \ average three-point percentage, average free throw percentage, total assists,\
+      \ average assists per game, total turnovers, average turnovers per game, total\
+      \ steals, total blocks, total block attempts, total personal fouls, total personal\
+      \ fouls drawn, total points, average points per game, total plus-minus, and\
+      \ average plus-minus.\n\nThese statistics can be used to analyze and compare\
+      \ the performance and value of basketball players based on their salaries and\
+      \ various on-court contributions."
