@@ -27,3 +27,6 @@ models:
       \ average plus-minus.\n\nThese statistics can be used to analyze and compare\
       \ the performance and value of basketball players based on their salaries and\
       \ various on-court contributions."
+    columns:
+      - name: PLAYER_ID
+        description: The unique id of an nba player
