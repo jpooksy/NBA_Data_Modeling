@@ -1,46 +1,46 @@
-WITH source AS (
-    SELECT
-        *
-    FROM
+with source as (
+    select *
+    from
         {{ source(
             "PUBLIC",
             "GAMES"
         ) }}
 ),
-renamed AS (
-    SELECT
-        SEASON_ID as season_id,
-        TEAM_ID as team_id, 
-        TEAM_ABBREVIATION as team_abbreviation,
-        TEAM_NAME as team_name, 
-        GAME_ID as game_id,
-        GAME_DATE as game_date,
-        MATCHUP as matchup,
-        WL AS win_loss,
-        "MIN" AS game_duration_mins,
-        PTS AS points,
-        FGM AS field_goals_made,
-        FGA AS field_goals_attempted,
-        FG_PCT AS field_goal_pct,
-        FG3M AS three_point_made,
-        FG3A AS three_point_attempted,
-        FG3_PCT AS three_point_pct,
-        FTM AS free_throws_made,
-        FTA AS free_throws_attempted,
-        FT_PCT AS free_throw_pct,
-        OREB AS offensive_rebounds,
-        DREB AS defensive_rebounds,
-        REB AS total_rebounds,
-        AST AS assists,
-        STL AS steals,
-        BLK AS blocks,
-        TOV AS turnovers,
-        PF AS personal_fouls,
-        PLUS_MINUS
-    FROM
+
+renamed as (
+    select
+        season_id as season_id,
+        team_id as team_id,
+        team_abbreviation as team_abbreviation,
+        team_name as team_name,
+        game_id as game_id,
+        game_date as game_date,
+        matchup as matchup,
+        wl as win_loss,
+        "MIN" as game_duration_mins,
+        pts as points,
+        fgm as field_goals_made,
+        fga as field_goals_attempted,
+        fg_pct as field_goal_pct,
+        fg3m as three_point_made,
+        fg3a as three_point_attempted,
+        fg3_pct as three_point_pct,
+        ftm as free_throws_made,
+        fta as free_throws_attempted,
+        ft_pct as free_throw_pct,
+        oreb as offensive_rebounds,
+        dreb as defensive_rebounds,
+        reb as total_rebounds,
+        ast as assists,
+        stl as steals,
+        blk as blocks,
+        tov as turnovers,
+        pf as personal_fouls,
+        plus_minus
+    from
         source
 )
-SELECT
-    *
-FROM
+
+select *
+from
     renamed

@@ -1,5 +1,10 @@
 version: 2
+
 models:
+  - name: fct_opponent_stats_per_team
+  - name: fct_player_best_second_rounders
+  - name: fct_players_by_college
+  - name: fct_team_season_stats
   - name: fct_player_season_stats
     description: "**Business Summary:**\n\nThe business summary of the model explanation\
       \ is that the model calculates various statistics for basketball players based\
