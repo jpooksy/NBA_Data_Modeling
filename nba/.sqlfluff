@@ -1,0 +1,44 @@
+[sqlfluff]
+dialect = snowflake
+templater = dbt
+exclude_rules = L016,L031,L034
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+
+[sqlfluff:layout:type:alias_expression]
+# We want non-default spacing _before_ the alias expressions.
+spacing_before = align
+# We want to align them within the next outer select clause.
+# This means for example that alias expressions within the FROM
+# or JOIN clause would _not_ be aligned with them.
+align_within = select_clause
+# The point at which to stop searching outward for siblings, which
+# in this example would likely be the boundary of a CTE. Stopping
+# when we hit brackets is usually a good rule of thumb for this
+# configuration.
+align_scope = bracketed
+
+[sqlfluff:templater:jinja]
+apply_dbt builtins = True
+
+[sqlfluff: templater: jinja:macros]
+
+# Macros provided as builtins for dbt projects
+
+dbt_ref = (% macro ref(model ref) %](fmodel ref}](% endmacro %}
+dbt_source = (% macro source(source_name, table) %}({source_name}}_((table})(% endmacro %}
+dbt config = (% macro config() %}{% for k in kwargs %][% endfor s}{% endmacro %}
+dbt var = (% macro var(variable) %}item{% endmacro &}
+dbt target = (% macro target () %}item(% endmacro &}
+
+[sqlfluff:rules]
+tab_space_size = 2
+
+[sqlfluff:rules:capitalisation.keywords]
+# Keywords
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.literals]
+# Null & Boolean Literals
+capitalisation_policy = upper

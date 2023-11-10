@@ -1,0 +1,14 @@
+[0m23:28:50.176826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa30f3730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa295fa00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa295f490>]}
+
+
+============================== 23:28:50.182183 | 75ec054c-30df-40fb-8738-07d20af2f2bf ==============================
+[0m23:28:50.182183 [info ] [MainThread]: Running with dbt=1.6.0
+[0m23:28:50.184753 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/workspace', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m23:28:50.187034 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /workspace/repository/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m23:28:50.189523 [debug] [MainThread]: Command `dbt run` failed at 23:28:50.189327 after 0.03 seconds
+[0m23:28:50.191519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa30f3730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa2919730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa2919af0>]}
+[0m23:28:50.193463 [debug] [MainThread]: Flushing usage events
