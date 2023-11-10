@@ -1,3 +1,13 @@
+{# break down the player season into quarters. 
+remodel this differently. 
+calculate a new column "quarter of the season" 
+and then have aggregates for major stats. 
+
+Task: Create intermediate date table
+Then warehouse tables will be separated by weekly, quarterly, monthly, yearly. 
+ #}
+
+
 {{
     config (
         materialized = 'table'
@@ -6,32 +16,32 @@
 
 with playerstats as (
     select 
-        g.player_id,
-        g.player_name,
-        sum(g.mins_played) as total_mins_played,
-        sum(g.field_goals_made) as total_field_goals_made,
-        sum(g.field_goals_attempted) as total_field_goals_attempted,
-        sum(g.three_point_made) as total_three_point_made,
-        sum(g.three_point_attempted) as total_three_point_attempted,
-        sum(g.free_throws_made) as total_free_throws_made,
-        sum(g.free_throws_attempted) as total_free_throws_attempted,
-        sum(g.offensive_rebounds) as total_offensive_rebounds,
-        sum(g.defensive_rebounds) as total_defensive_rebounds,
-        sum(g.total_rebounds) as total_rebounds,
-        sum(g.assists) as total_assists,
-        sum(g.turnovers) as total_turnovers,
-        sum(g.steals) as total_steals,
-        sum(g.blocks) as total_blocks,
-        sum(g.block_attempts) as total_block_attempts,
-        sum(g.personal_fouls) as total_personal_fouls,
-        sum(g.personal_foul_drawn) as total_personal_foul_drawn,
-        sum(g.points) as total_points,
-        sum(g.plus_minus) as total_plus_minus,
-        sum(case when g.mins_played > 0 then 1 else 0 end) as games_played
+        player_id,
+        player_name,
+        sum(mins_played) as total_mins_played,
+        sum(field_goals_made) as total_field_goals_made,
+        sum(field_goals_attempted) as total_field_goals_attempted,
+        sum(three_point_made) as total_three_point_made,
+        sum(three_point_attempted) as total_three_point_attempted,
+        sum(free_throws_made) as total_free_throws_made,
+        sum(free_throws_attempted) as total_free_throws_attempted,
+        sum(offensive_rebounds) as total_offensive_rebounds,
+        sum(defensive_rebounds) as total_defensive_rebounds,
+        sum(total_rebounds) as total_rebounds,
+        sum(assists) as total_assists,
+        sum(turnovers) as total_turnovers,
+        sum(steals) as total_steals,
+        sum(blocks) as total_blocks,
+        sum(block_attempts) as total_block_attempts,
+        sum(personal_fouls) as total_personal_fouls,
+        sum(personal_foul_drawn) as total_personal_foul_drawn,
+        sum(points) as total_points,
+        sum(plus_minus) as total_plus_minus,
+        sum(case when mins_played > 0 then 1 else 0 end) as games_played
     from 
         {{ ref('source_player_game_logs') }} as g
     group by 
-        g.player_id, g.player_name
+        player_id, player_name
 ), averages as (
     select 
         avg(total_assists) as avg_assists_per_game,
@@ -67,6 +77,8 @@ select
 from 
     playerstats ps
 join
-    {{ ref('source_player_salaries') }} as s on ps.player_name = s.full_name
+    {{ ref('source_player_salaries') }} as s 
+on 
+    ps.player_name = s.full_name
 cross join
     averages a
