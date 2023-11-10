@@ -8,6 +8,7 @@ with playerstats as (
     select 
         g.player_id,
         g.player_name,
+        month,
         sum(g.mins_played) as total_mins_played,
         sum(g.field_goals_made) as total_field_goals_made,
         sum(g.field_goals_attempted) as total_field_goals_attempted,
@@ -32,11 +33,12 @@ with playerstats as (
     from 
         {{ ref('source_player_game_logs') }} as g
     group by 
-        g.player_id, g.player_name
+        g.player_id, g.player_name, month
 )
 select 
     ps.player_id,
     ps.player_name,
+    month,
     s."2022_23_salary",
     ps.total_mins_played,
     s."2022_23_salary" / nullif(ps.total_mins_played, 0) as salary_per_minute_played,
