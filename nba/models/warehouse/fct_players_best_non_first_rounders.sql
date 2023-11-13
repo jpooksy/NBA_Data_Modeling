@@ -18,7 +18,7 @@ select
     sr.draft_round,
     sr.draft_number
 from
-    {{ ref('fct_player_season_stats') }} as pss
+    {{ ref('fct_player_stats_by_season') }} as pss
 join
     second_rounders as sr
 
