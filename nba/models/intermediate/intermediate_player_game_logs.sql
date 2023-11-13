@@ -31,7 +31,7 @@ select * from date_details order by PLAYER_ID #}
         materialized = "table"
     )
 }}
-with date_dimension as (
+with date_details as (
     select * from {{ ref('date_details') }}
 )
 select
@@ -41,5 +41,5 @@ select
 from
     {{ ref('source_player_game_logs') }} p
     left join
-    date_dimension d
+    date_details d
         on p.GAME_DATE = d.date_day
