@@ -1,9 +1,3 @@
-{{
-    config (
-        materialized = 'table'
-    )
-}}
-
 with team_stats as (
     select
         g1.game_id,
