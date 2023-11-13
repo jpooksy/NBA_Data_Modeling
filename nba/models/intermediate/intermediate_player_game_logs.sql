@@ -1,8 +1,3 @@
-{{
-    config(
-        materialized = "view"
-    )
-}}
 with date_details as (
     select * from {{ ref('date_details') }}
 )

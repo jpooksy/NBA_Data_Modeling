@@ -1,9 +1,3 @@
-{{
-    config (
-        materialized = 'table'
-    )
-}}
-
 with players_by_college as (
     select 
         school,

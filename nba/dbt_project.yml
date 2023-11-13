@@ -17,8 +17,19 @@ clean-targets:
 
 models:
   nba:
-    example:
+    utils:
+      +schema: utils
+      +materialized: table
+    staging: 
+      +schema: staging
       +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    warehouse:
+      +schema: warehouse
+      +materialized: table
+    
 
 vars:
     "dbt_date:time_zone": "America/Los_Angeles"

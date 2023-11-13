@@ -1,9 +1,3 @@
-{{
-    config (
-        materialized = 'table'
-    )
-}}
-
 with second_rounders as (
     select 
         * 

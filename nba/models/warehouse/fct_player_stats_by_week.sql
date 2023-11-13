@@ -1,9 +1,3 @@
-{{
-    config (
-        materialized = 'table'
-    )
-}}
-
 with player_stats as (
     select 
         player_id,
