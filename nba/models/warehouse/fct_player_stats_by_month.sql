@@ -1,13 +1,3 @@
-{# break down the player season into quarters. 
-remodel this differently. 
-calculate a new column "quarter of the season" 
-and then have aggregates for major stats. 
-
-Task: Create intermediate date table
-Then warehouse tables will be separated by weekly, quarterly, monthly, yearly. 
- #}
-
-
 {{
     config (
         materialized = 'table'

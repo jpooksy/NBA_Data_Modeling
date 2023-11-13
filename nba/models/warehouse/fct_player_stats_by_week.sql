@@ -8,7 +8,7 @@ with player_stats as (
     select 
         player_id,
         player_name,
-        quarter_of_year,
+        week_of_year,
         sum(mins_played) as total_mins_played,
         sum(field_goals_made) as total_field_goals_made,
         sum(field_goals_attempted) as total_field_goals_attempted,
