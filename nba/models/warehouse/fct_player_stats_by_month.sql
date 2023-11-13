@@ -37,7 +37,8 @@ select
     *,
     coalesce(total_field_goals_made * 1.0 / nullif(total_field_goals_attempted, 0), 0) as field_goal_pct,
     coalesce(total_three_point_made * 1.0 / nullif(total_three_point_attempted, 0), 0) as three_point_pct,
-    coalesce(total_free_throws_made * 1.0 / nullif(total_free_throws_attempted, 0), 0) as free_throw_pct
+    coalesce(total_free_throws_made * 1.0 / nullif(total_free_throws_attempted, 0), 0) as free_throw_pct,
+    coalesce(total_points * 1.0 / nullif(games_played, 0), 0) as avg_points_per_game
 
 from player_stats 
 order by player_id
