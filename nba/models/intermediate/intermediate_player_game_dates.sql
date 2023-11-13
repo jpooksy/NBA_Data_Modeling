@@ -1,4 +1,4 @@
-{{
+{# {{
     config (
         materialized = 'view'
     )
@@ -23,4 +23,23 @@ with date_details as (
     from {{ ref('source_player_game_logs') }}
 )
 
-select * from date_details order by PLAYER_ID
+select * from date_details order by PLAYER_ID #}
+
+
+{{
+    config(
+        materialized = "table"
+    )
+}}
+with date_dimension as (
+    select * from {{ ref('date_details') }}
+)
+select
+    p.*,
+    d.*
+    
+from
+    {{ ref('source_player_game_logs') }} p
+    left join
+    date_dimension d
+        on p.GAME_DATE = d.date_day
