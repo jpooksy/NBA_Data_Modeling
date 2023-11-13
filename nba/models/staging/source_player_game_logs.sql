@@ -60,7 +60,7 @@ renamed AS (
         FT_PCT_RANK AS free_throw_pct_rank,
         OREB_RANK AS offensive_rebounds_rank,
         DREB_RANK AS defensive_rebounds_rank,
-        REB_RANK AS total_rebounds_rank,
+        REB_RANK AS rebounds_rank,
         AST_RANK AS assists_rank,
         TOV_RANK AS turnovers_rank,
         STL_RANK AS steals_rank,
