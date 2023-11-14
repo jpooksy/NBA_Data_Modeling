@@ -1,9 +1,0 @@
-version: 2
-
-models:
-  - name: fct_player_season_stats
-  - name: fct_player_stats_by_month
-  - name: fct_player_best_second_rounders
-  - name: fct_players_by_college
-  - name: fct_team_season_stats
-  - name: fct_player_season_stats
