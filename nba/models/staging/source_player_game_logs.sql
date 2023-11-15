@@ -20,7 +20,6 @@ renamed AS (
         TEAM_ID,
         TEAM_NAME,
         GAME_ID,
-        --  DATE(GAME_DATE) AS GAME_DATE,
         CAST(GAME_DATE AS DATE) AS GAME_DATE,
         MATCHUP,
         WL AS win_loss,

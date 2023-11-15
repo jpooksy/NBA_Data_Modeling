@@ -19,11 +19,7 @@ renamed as (
         display_first_last as full_name,
         school,
         country,
-        {% if target.name == "dev_duck_db" -%}
-        (CAST(SPLIT_PART('height', '-', 1) AS INT) * 12) + CAST(SPLIT_PART('height', '-', 2) AS INT) as height_in_inches,
-        {%- else -%}
-        (CAST(SPLIT_PART(height, '-', 1) AS INT) * 12) + CAST(SPLIT_PART(height, '-', 2) AS INT) as height_in_inches,
-        {%- endif %} 
+        (CAST(SPLIT_PART(HEIGHT, '-', 1) AS INT) * 12) + CAST(SPLIT_PART(HEIGHT, '-', 2) AS INT) as height_in_inches,
         weight,
         season_exp as seasons_played,
         position,
