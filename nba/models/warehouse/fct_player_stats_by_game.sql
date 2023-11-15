@@ -1,0 +1,20 @@
+select 
+    player_id,
+    player_name,
+    mins_played,
+    field_goals_made,
+    field_goals_attempted,
+    three_point_made,
+    three_point_attempted,
+    free_throws_made,
+    free_throws_attempted,
+    total_rebounds,
+    assists,
+    blocks,
+    steals,
+    personal_fouls,
+    turnovers,
+    points,
+    plus_minus
+from
+    {{ ref('intermediate_player_game_logs') }}
