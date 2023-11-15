@@ -18,3 +18,14 @@ models:
       \ based on the season_month calculated in the CTE, and assigns a value from\
       \ 1 to 7 based on the month.\n\nOverall, this model is used to rank and categorize\
       \ the games by team, game date, season quarter, and season month."
+  - name: intermediate_player_salaries
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that it fetches data from the `source_player_salaries` table and filters\
+      \ out rows where the `2022_23_salary` column has a null value.\n\n**Technical\
+      \ Summary:**\n\nThe dbt model begins by creating a CTE (common table expression)\
+      \ called `source` which selects all columns from the dbt source table named\
+      \ `source_player_salaries`. \n\nThen, the model selects all columns from the\
+      \ `source` CTE and applies a filter using the WHERE clause. It only includes\
+      \ rows where the value of the column `2022_23_salary` is not null. \n\nIn summary,\
+      \ the dbt model is fetching data from the `source_player_salaries` table and\
+      \ only returning rows that have a non-null value in the `2022_23_salary` column."
