@@ -17,7 +17,7 @@ renamed AS (
         TEAM_ID,
         TEAM_NAME,
         GAME_ID,
-        GAME_DATE,
+        TO_VARCHAR(DATE(GAME_DATE), 'YYYY-MM-DD') AS GAME_DATE,
         MATCHUP,
         WL AS win_loss,
         "MIN" AS mins_played,

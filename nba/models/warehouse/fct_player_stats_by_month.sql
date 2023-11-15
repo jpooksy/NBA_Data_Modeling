@@ -2,7 +2,7 @@ with player_stats_1 as (
     select 
         player_id,
         player_name,
-        month_of_year,
+        season_month,
     {# sum values #}
         sum(case when mins_played > 0 then 1 else 0 end) as games_played,
         sum(mins_played) as total_mins_played,
@@ -51,7 +51,6 @@ with player_stats_1 as (
 
 from {{ ref('intermediate_player_game_logs') }}
 group by 1,2,3
-order by 1
 ), 
 
 player_stats_2 as (
@@ -64,7 +63,6 @@ player_stats_2 as (
     from 
         player_stats_1
     order by 
-        month_of_year
+        season_month
 )
 select * from player_stats_2
-where player_ID = 2544

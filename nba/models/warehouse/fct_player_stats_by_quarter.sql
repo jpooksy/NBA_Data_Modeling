@@ -2,7 +2,7 @@ with player_stats_1 as (
     select 
         player_id,
         player_name,
-        quarter_of_year,
+        season_quarter,
     {# sum values #}
         sum(case when mins_played > 0 then 1 else 0 end) as games_played,
         sum(mins_played) as total_mins_played,
@@ -64,6 +64,6 @@ player_stats_2 as (
     from 
         player_stats_1
     order by 
-        quarter_of_year
+        season_quarter
 )
 select * from player_stats_2

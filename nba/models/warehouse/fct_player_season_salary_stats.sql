@@ -33,5 +33,4 @@ select
     *
 from 
     joined
-order by salary_per_game_played desc
 
