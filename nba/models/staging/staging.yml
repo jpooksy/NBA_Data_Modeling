@@ -32,3 +32,22 @@ models:
       \ renames some other columns and performs additional calculations on the data.\n\
       \nFinally, the model selects all columns from the `renamed` stage and returns\
       \ them as the output."
+  - name: source_games
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that it is a dbt (data build tool) model that is used to source data from\
+      \ a table called `GAMES` in the `PUBLIC` schema. The model then transforms and\
+      \ renames the columns to improve readability and understanding. The final output\
+      \ includes all the columns from the transformed step. This model can be used\
+      \ for loading and transforming data from the `GAMES` table in the `PUBLIC` schema.\n\
+      \n**Technical Summary:**\n\nThe model defined above is a dbt (data build tool)\
+      \ model. It has two steps: `source` and `renamed`. \n\nIn the `source` step,\
+      \ data is sourced from a table named `GAMES` in the schema `PUBLIC`. The source()\
+      \ function is a dbt macro that helps in sourcing data from various databases.\n\
+      \nIn the `renamed` step, the data from the `source` step is transformed and\
+      \ renamed. The column names are modified to make them more understandable. For\
+      \ example, the column `season_id` remains the same, but other columns like `team_id`\
+      \ are renamed as `team_abbreviation` to represent the team's abbreviated name.\n\
+      \nAfter the transformation, all the columns from the `renamed` step are selected\
+      \ and returned in the final output.\n\nThis dbt model can be used to load and\
+      \ transform data from the `GAMES` table in the `PUBLIC` schema, and rename the\
+      \ columns for better readability and understanding."
