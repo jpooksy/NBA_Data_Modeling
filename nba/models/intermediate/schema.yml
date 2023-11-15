@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: intermediate_game_date_details
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that this model is used to rank and categorize games by team, game date,\
+      \ season quarter, and season month. It uses a common table expression (CTE)\
+      \ to rank the games and calculates the season month using the month() function.\
+      \ The main query selects the relevant columns from the CTE and uses CASE statements\
+      \ to determine the season quarter and season month.\n\n**Technical Summary:**\n\
+      \nThe dbt model is using a common table expression (CTE) called `ranked_games`\
+      \ to rank the games by team_id and game_date. The CTE selects the team_id, game_id,\
+      \ team_name, game_date, and calculates the season_month using the month() function.\
+      \ It also assigns a game_rank to each game within a team, ordered by game_date\
+      \ and game_id.\n\nThen, the main query selects the team_id, game_id, team_name,\
+      \ game_rank, game_date from the ranked_games CTE. It also uses a CASE statement\
+      \ to determine the season_quarter based on the game_rank, and assigns a value\
+      \ from 1 to 4.\n\nAnother CASE statement is used to determine the season_month\
+      \ based on the season_month calculated in the CTE, and assigns a value from\
+      \ 1 to 7 based on the month.\n\nOverall, this model is used to rank and categorize\
+      \ the games by team, game date, season quarter, and season month."
