@@ -75,3 +75,18 @@ models:
       \ code, we select all columns from the `renamed` stage, which represents the\
       \ final transformed data.\n\nOverall, this dbt model takes data from the `COMMON_PLAYER_INFO`\
       \ table, applies some transformations, and outputs the final transformed data."
+  - name: source_team_salaries
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that the model performs transformations on data from the `PUBLIC.TEAM_SALARIES`\
+      \ source table. It creates temporary tables, renames columns, and returns the\
+      \ transformed data as the final output.\n\n**Technical Summary:**\n\nThis dbt\
+      \ model performs the following actions:\n\n1. It starts by creating a temporary\
+      \ table called `source` using the data from the `PUBLIC.TEAM_SALARIES` source\
+      \ table. The `source` table represents the initial dataset for further transformations.\n\
+      \n2. Next, it creates a temporary table called `renamed` by selecting specific\
+      \ columns from the `source` table and renaming them. The columns `Team`, `Total\
+      \ Cap`, and `Luxury Tax Bill` are renamed to `full_name`, `total_cap`, and `luxury_tax_bill`,\
+      \ respectively.\n\n3. Finally, it selects all columns from the `renamed` table\
+      \ and returns them as the final output of the dbt model.\n\nOverall, this model\
+      \ fetches data from the `PUBLIC.TEAM_SALARIES` table, renames certain columns,\
+      \ and presents the transformed data as the final result."
