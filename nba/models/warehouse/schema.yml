@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: fct_opponent_stats_per_team
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that the given dbt model calculates various statistics for each team based\
+      \ on game data. It joins the game data with itself to filter out rows where\
+      \ the team_id is the same. The calculated statistics include win/loss record,\
+      \ point differentials, shooting percentages, rebounds, assists, steals, blocks,\
+      \ turnovers, and personal fouls. The model then aggregates these statistics\
+      \ to calculate various opponent-related statistics and overall team performance.\
+      \ The final result is grouped by team_id and team_name and ordered by total\
+      \ point differential.\n\n**Technical Summary:**\n\nThe given dbt model calculates\
+      \ various statistics for each team based on game data. It first creates a common\
+      \ table expression (CTE) called `team_stats` by joining the `source_games` table\
+      \ with itself on game_id and filtering out rows where the team_id is the same.\
+      \ The CTE includes columns such as game_id, team_id, team_name, win_loss, point_differential,\
+      \ points, field goals made/attempted/percentage, three-pointers made/attempted/percentage,\
+      \ free throws made/attempted/percentage, rebounds, assists, steals, blocks,\
+      \ turnovers, personal fouls, and plus-minus.\n\nThe subsequent query then selects\
+      \ and aggregates data from the `team_stats` CTE. It calculates various statistics\
+      \ for each team, such as total opponent points, average opponent points, total\
+      \ opponent field goals made/attemped, average opponent field goals made/attempted,\
+      \ average opponent field goal percentage, total opponent three-pointers made/attempted,\
+      \ average opponent three-pointers made/attempted, average opponent three-pointers\
+      \ percentage, total opponent free throws made/attempted, average opponent free\
+      \ throws made/attempted, average opponent free throw percentage, total opponent\
+      \ rebounds, average opponent rebounds, total opponent offensive rebounds, average\
+      \ opponent offensive rebounds, total opponent defensive rebounds, average opponent\
+      \ defensive rebounds, total opponent assists, average opponent assists, total\
+      \ opponent steals, average opponent steals, total opponent blocks, average opponent\
+      \ blocks, total opponent turnovers, average opponent turnovers, total opponent\
+      \ personal fouls, average opponent personal fouls, total opponent plus-minus,\
+      \ average opponent plus-minus, total point differential, and average point differential.\n\
+      \nThe result is grouped by team_id and team_name and ordered by the total point\
+      \ differential in descending order."
