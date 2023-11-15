@@ -20,7 +20,7 @@ renamed AS (
         TO_VARCHAR(DATE(GAME_DATE), 'YYYY-MM-DD') AS GAME_DATE,
         MATCHUP,
         WL AS win_loss,
-        "MIN" AS mins_played,
+        ROUND("MIN", 2) AS mins_played,
         FGM AS field_goals_made,
         FGA AS field_goals_attempted,
         FG_PCT AS field_goal_pct,
