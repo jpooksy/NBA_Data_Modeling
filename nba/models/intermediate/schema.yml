@@ -29,3 +29,15 @@ models:
       \ rows where the value of the column `2022_23_salary` is not null. \n\nIn summary,\
       \ the dbt model is fetching data from the `source_player_salaries` table and\
       \ only returning rows that have a non-null value in the `2022_23_salary` column."
+  - name: intermediate_player_game_logs
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that the dbt model creates temporary tables, performs data joins, and selects\
+      \ specific columns to return a result.\n\n**Technical Summary:**\n\nThe dbt\
+      \ model starts by creating a temporary table called `season_quarters` which\
+      \ contains the data from the `intermediate_game_date_details` table. \n\nNext,\
+      \ another temporary table called `player_game_logs` is created which contains\
+      \ the data from the `source_player_game_logs` table.\n\nThen, a final temporary\
+      \ table called `joined` is created by joining the `player_game_logs` table with\
+      \ the `season_quarters` table on the conditions that the game date and team\
+      \ id match.\n\nFinally, the query selects all columns from the `joined` table\
+      \ and returns the result."
