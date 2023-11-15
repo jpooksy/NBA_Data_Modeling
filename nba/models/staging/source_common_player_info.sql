@@ -1,10 +1,14 @@
 with source as (
     select *
-    from
-        {{ source(
-            "PUBLIC",
-            "COMMON_PLAYER_INFO"
-        ) }}
+    from {% if target.name == "dev_duck_db" -%}
+            {{ ref('common_player_info') }}
+         {%- else -%}
+            {{ source(
+                "PUBLIC",
+                "COMMON_PLAYER_INFO"
+            ) }}
+         {%- endif %}
+
 ),
 
 renamed as (
