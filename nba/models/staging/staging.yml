@@ -13,4 +13,22 @@ sources:
       - name: TEAM_SALARIES
       - name: TEAM_YEAR_BY_YEAR_STATS
 
-      
+version: 2
+models:
+  - name: source_player_game_logs
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ above is that it describes the process of retrieving data from the `PLAYER_GAME_LOGS`\
+      \ table in the `PUBLIC` schema and performing various transformations on the\
+      \ data. The transformations include renaming columns, converting date format,\
+      \ rounding minutes played, and performing additional calculations. The model\
+      \ then selects all the transformed columns as the output.\n\n**Technical Summary:**\n\
+      \nThe dbt (data build tool) model outlined above consists of two stages: `source`\
+      \ and `renamed`. \n\nIn the `source` stage, the model retrieves data from the\
+      \ `PLAYER_GAME_LOGS` table in the `PUBLIC` schema. The retrieved data is then\
+      \ used as the input for the next stage.\n\nIn the `renamed` stage, the model\
+      \ performs various transformations on the data. It renames some of the columns\
+      \ to more descriptive names, converts the `GAME_DATE` column to the format `YYYY-MM-DD`,\
+      \ and rounds the `MIN` (minutes played) column to two decimal places. It also\
+      \ renames some other columns and performs additional calculations on the data.\n\
+      \nFinally, the model selects all columns from the `renamed` stage and returns\
+      \ them as the output."
