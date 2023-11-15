@@ -51,3 +51,27 @@ models:
       \ and returned in the final output.\n\nThis dbt model can be used to load and\
       \ transform data from the `GAMES` table in the `PUBLIC` schema, and rename the\
       \ columns for better readability and understanding."
+  - name: source_common_player_info
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that the code represents a dbt model, which is a process for transforming\
+      \ and preparing data in a data warehouse. This model has two stages of transformations\
+      \ - the `source` stage and the `renamed` stage. The `source` stage selects all\
+      \ columns from a table called `COMMON_PLAYER_INFO` in the `PUBLIC` schema. The\
+      \ `renamed` stage further transforms the data by renaming columns and performing\
+      \ calculations or conversions. The final transformed data is selected from the\
+      \ `renamed` stage. In summary, this dbt model takes data from a specific table,\
+      \ applies transformations, and outputs the final transformed data.\n\n**Technical\
+      \ Summary:**\n\nThe above code represents the dbt model, which is a process\
+      \ for transforming and preparing data in a data warehouse. In this model, we\
+      \ have two stages of transformations.\n\nThe first stage is the `source` stage,\
+      \ which selects all columns from a table named `COMMON_PLAYER_INFO` in the `PUBLIC`\
+      \ schema. The `source` stage acts as the input for the next stage.\n\nIn the\
+      \ second stage, the `renamed` stage, we further transform the data by selecting\
+      \ specific columns from the `source` stage and performing some calculations\
+      \ or renaming columns. \n\nFor example, we rename the column `display_first_last`\
+      \ as `full_name` and calculate the `height_in_inches` by converting the height\
+      \ from feet-inches format to inches. We also rename some other columns and perform\
+      \ some simple calculations or conversions.\n\nFinally, in the last part of the\
+      \ code, we select all columns from the `renamed` stage, which represents the\
+      \ final transformed data.\n\nOverall, this dbt model takes data from the `COMMON_PLAYER_INFO`\
+      \ table, applies some transformations, and outputs the final transformed data."
