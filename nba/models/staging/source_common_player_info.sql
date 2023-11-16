@@ -1,10 +1,14 @@
 with source as (
     select *
-    from
-        {{ source(
-            "PUBLIC",
-            "COMMON_PLAYER_INFO"
-        ) }}
+    from {% if target.name == "dev_duck_db" -%}
+            {{ ref('common_player_info') }}
+         {%- else -%}
+            {{ source(
+                "PUBLIC",
+                "COMMON_PLAYER_INFO"
+            ) }}
+         {%- endif %}
+
 ),
 
 renamed as (
@@ -15,7 +19,7 @@ renamed as (
         display_first_last as full_name,
         school,
         country,
-        (CAST(SPLIT_PART(height, '-', 1) AS INT) * 12) + CAST(SPLIT_PART(height, '-', 2) AS INT) as height_in_inches,
+        (CAST(SPLIT_PART(HEIGHT, '-', 1) AS INT) * 12) + CAST(SPLIT_PART(HEIGHT, '-', 2) AS INT) as height_in_inches,
         weight,
         season_exp as seasons_played,
         position,

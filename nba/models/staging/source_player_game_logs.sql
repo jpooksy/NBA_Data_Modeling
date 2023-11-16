@@ -1,11 +1,14 @@
 WITH source AS (
     SELECT
         *
-    FROM
-        {{ source(
+    FROM {% if target.name == "dev_duck_db" -%}
+            {{ ref('player_game_logs') }}
+         {%- else -%}
+            {{ source(
             "PUBLIC",
             "PLAYER_GAME_LOGS"
-        ) }}
+            ) }}
+         {%- endif %}
 ),
 renamed AS (
     SELECT
@@ -17,7 +20,7 @@ renamed AS (
         TEAM_ID,
         TEAM_NAME,
         GAME_ID,
-        TO_VARCHAR(DATE(GAME_DATE), 'YYYY-MM-DD') AS GAME_DATE,
+        CAST(GAME_DATE AS DATE) AS GAME_DATE,
         MATCHUP,
         WL AS win_loss,
         ROUND("MIN", 2) AS mins_played,
