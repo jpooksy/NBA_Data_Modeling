@@ -1,7 +1,7 @@
 with players_by_college as (
     select 
         school,
-        count(*) as player_count_total
+        count(*) as 
     from 
         {{ ref('source_common_player_info') }}
     where
