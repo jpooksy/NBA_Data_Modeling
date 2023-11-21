@@ -3,7 +3,7 @@ WITH player_stats AS (
         p.player_id,
         player_name,
         g.team_name AS opponent,
-        AVG(p.points) AS avg_points_scored
+        AVG(p.points) AS averaged_points_scored
     FROM
         {{ ref('source_player_game_logs') }} p
     JOIN
