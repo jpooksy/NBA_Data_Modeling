@@ -29,9 +29,7 @@ with team_stats as (
     join
         {{ ref('source_games') }} g2
         on g1.game_id = g2.game_id and g1.team_id <> g2.team_id
-)
--- select and aggregate data from the teamstats cte
-    -- this section calculates various statistics for each team, such as total wins, losses, points, averages, etc.
+), final as (
 select
     team_id as team_id,
     team_name as team_name,
@@ -79,3 +77,6 @@ group by
     team_name
 order by
     tot_point_diff desc
+)
+
+Select * from final

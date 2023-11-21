@@ -85,4 +85,4 @@ group by
     ts.team_name,
     tsal.total_team_cap -- Include total_team_cap in the GROUP BY clause
 order by
-    ts.team_id
+    ts.team_id1

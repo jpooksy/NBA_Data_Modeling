@@ -1,0 +1,1538 @@
+version: 2
+models:
+  - name: fct_opponent_stats_per_team
+    columns:
+      - name: team_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: tot_opp_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_field_goal_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_three_pointers_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_three_pointers_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_three_pointers_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_three_pointers_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_three_pointers_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_free_throw_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_opp_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_opp_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_point_diff
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_point_dif
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_team_season_stats
+    columns:
+      - name: team_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: total_team_cap
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: cost_per_win
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_wins
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_losses
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goal_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_three_pointers_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_pointers_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_three_pointers_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_pointers_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_pointers_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throw_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tot_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_players_by_college
+    columns:
+      - name: school
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: player_count
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_players_best_non_first_rounders
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goal_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: draft_round
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: draft_number
+        description: ""
+        meta:
+          dimension:
+            type: string
+  - name: fct_player_stats_by_season
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goal_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_player_stats_by_quarter
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: season_quarter
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goal_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_player_stats_by_month
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: season_month
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: median_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goal_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_player_stats_by_game
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_player_season_salary_stats
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: 2022_23_salary
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: salary_per_game_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: salary_per_minute_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+  - name: fct_player_best_opponents
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: opponent
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: avg_points_scored
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: opponent_rank
+        description: ""
+        meta:
+          dimension:
+            type: number
+
