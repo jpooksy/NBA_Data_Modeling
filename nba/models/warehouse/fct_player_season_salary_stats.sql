@@ -3,7 +3,7 @@ with player_stats as (
         player_id, 
         player_name,
         games_played,
-        total_mins_played_total
+        total_mins_played
     from {{ ref('fct_player_stats_by_season') }}
 ),
 
