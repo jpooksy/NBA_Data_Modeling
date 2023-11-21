@@ -5,7 +5,7 @@ with second_rounders as (
         {{ ref('source_common_player_info') }} as cpi
     where 
         DRAFT_ROUND != '1'
-)
+), joined as (
 
 select 
     pss.*,
@@ -20,3 +20,9 @@ on
     pss.player_id = sr.person_id
 order by
     pss.total_plus_minus desc
+)
+
+select 
+    * 
+from 
+    joined
