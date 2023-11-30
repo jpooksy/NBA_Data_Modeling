@@ -6,7 +6,9 @@ with season_quarters as (
 ),
 
 player_game_logs as (
-    select * from {{ ref('source_player_game_logs') }}
+    select 
+        * 
+    from {{ ref('source_player_game_logs') }}
 ),
 
 joined as (
