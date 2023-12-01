@@ -204,32 +204,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: team_name
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: total_team_cap
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: cost_per_win
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: total_wins
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: total_losses
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_points
         description: ""
         meta:
           dimension:
@@ -239,17 +214,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: tot_field_goals_made
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_field_goals_made
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_field_goals_attempted
         description: ""
         meta:
           dimension:
@@ -259,22 +224,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: avg_field_goal_percentage
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_three_pointers_made
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_three_pointers_made
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_three_pointers_attempted
         description: ""
         meta:
           dimension:
@@ -284,22 +234,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: avg_three_pointers_percentage
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_free_throws_made
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_free_throws_made
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_free_throws_attempted
         description: ""
         meta:
           dimension:
@@ -309,22 +244,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: avg_free_throw_percentage
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_total_rebounds
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_total_rebounds
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_offensive_rebounds
         description: ""
         meta:
           dimension:
@@ -334,17 +254,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: tot_defensive_rebounds
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_defensive_rebounds
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_assists
         description: ""
         meta:
           dimension:
@@ -354,17 +264,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: tot_steals
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_steals
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_blocks
         description: ""
         meta:
           dimension:
@@ -374,17 +274,7 @@ models:
         meta:
           dimension:
             type: number
-      - name: tot_turnovers
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: avg_turnovers
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: tot_personal_fouls
         description: ""
         meta:
           dimension:
@@ -394,12 +284,132 @@ models:
         meta:
           dimension:
             type: number
-      - name: tot_plus_minus
+      - name: avg_plus_minus
         description: ""
         meta:
           dimension:
             type: number
-      - name: avg_plus_minus
+      - name: team_full_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: year
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: games_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: wins
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: losses
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_pointers_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_pointers_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goal_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_percentage
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_team_spend
         description: ""
         meta:
           dimension:
@@ -1535,4 +1545,3 @@ models:
         meta:
           dimension:
             type: number
-

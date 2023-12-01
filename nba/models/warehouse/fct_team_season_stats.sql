@@ -34,6 +34,7 @@ joined as (
 )
 
 select 
-    *
+    *,
+    total_team_spend/WINS as cost_per_win
 from 
     joined
