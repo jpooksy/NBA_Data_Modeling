@@ -13,7 +13,7 @@ WITH source AS (
 ),
 renamed AS (
     SELECT
-        "Team" as full_name,
+        "TEAM" as full_name,
         "Total Cap" as total_cap,
         "Luxury Tax Bill" as luxury_tax_bill
     FROM
