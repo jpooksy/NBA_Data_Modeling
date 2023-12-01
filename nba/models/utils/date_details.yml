@@ -1,0 +1,184 @@
+version: 2
+models:
+  - name: date_details
+    columns:
+      - name: date_day
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_date_day
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: next_date_day
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_date_day
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_over_year_date_day
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: day_of_week
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: day_of_week_iso
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: day_of_week_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: day_of_week_name_short
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: day_of_month
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: day_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: week_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: week_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_week_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_week_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: week_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: iso_week_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: iso_week_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_iso_week_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_iso_week_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: iso_week_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: prior_year_week_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: prior_year_iso_week_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: month_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: month_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: month_name_short
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: month_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: month_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_month_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: prior_year_month_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: quarter_of_year
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: quarter_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: quarter_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: year_number
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: year_start_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: year_end_date
+        description: ""
+        meta:
+          dimension:
+            type: date
