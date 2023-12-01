@@ -1,34 +1,34 @@
 with team_stats as (
     select
-        g1.game_id,
-        g1.team_id,
-        g1.team_name,
-        g2.win_loss,
-        (g2.points - g1.points) as point_differential,
-        g2.points,
-        g2.field_goals_made,
-        g2.field_goals_attempted,
-        g2.field_goal_pct,
-        g2.three_point_made,
-        g2.three_point_attempted,
-        g2.three_point_pct,
-        g2.free_throws_made,
-        g2.free_throws_attempted,
-        g2.free_throw_pct,
-        g2.offensive_rebounds,
-        g2.defensive_rebounds,
-        g2.total_rebounds,
-        g2.assists,
-        g2.steals,
-        g2.blocks,
-        g2.turnovers,
-        g2.personal_fouls,
-        g2.plus_minus
+        team.game_id,
+        team.team_id,
+        team.team_name,
+        opponent.win_loss,
+        (opponent.points - team.points) as point_differential,
+        opponent.points,
+        opponent.field_goals_made,
+        opponent.field_goals_attempted,
+        opponent.field_goal_pct,
+        opponent.three_point_made,
+        opponent.three_point_attempted,
+        opponent.three_point_pct,
+        opponent.free_throws_made,
+        opponent.free_throws_attempted,
+        opponent.free_throw_pct,
+        opponent.offensive_rebounds,
+        opponent.defensive_rebounds,
+        opponent.total_rebounds,
+        opponent.assists,
+        opponent.steals,
+        opponent.blocks,
+        opponent.turnovers,
+        opponent.personal_fouls,
+        opponent.plus_minus
     from
-        {{ ref('source_games') }} g1
+        {{ ref('source_games') }} team
     join
-        {{ ref('source_games') }} g2
-        on g1.game_id = g2.game_id and g1.team_id <> g2.team_id
+        {{ ref('source_games') }} opponent
+        on team.game_id = opponent.game_id and team.team_id <> opponent.team_id
 ), final as (
 select
     team_id as team_id,
@@ -75,8 +75,7 @@ from
 group by
     team_id,
     team_name
-order by
-    tot_point_diff desc
 )
 
 Select * from final
+order by avg_opp_points desc

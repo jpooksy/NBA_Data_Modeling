@@ -1,0 +1,14 @@
+[0m18:28:14.521615 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff94db0eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff93e45e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff93e458b0>]}
+
+
+============================== 18:28:14.526874 | 49155901-aef4-45d1-8894-c70e629c7de8 ==============================
+[0m18:28:14.526874 [info ] [MainThread]: Running with dbt=1.5.4
+[0m18:28:14.529280 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '/workspace', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m18:28:14.531296 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /workspace/repository/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:28:14.533595 [debug] [MainThread]: Command `dbt seed` failed at 18:28:14.533377 after 0.03 seconds
+[0m18:28:14.535207 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff94db0eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff93e458b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff93e45880>]}
+[0m18:28:14.536628 [debug] [MainThread]: Flushing usage events
