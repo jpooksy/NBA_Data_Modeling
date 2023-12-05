@@ -673,6 +673,24 @@ models:
         meta:
           dimension:
             type: string
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that the model retrieves and joins data from two tables, `source_common_player_info`\
+      \ and `fct_player_stats_by_season`, to create a new table. This new table includes\
+      \ player stats by season along with draft round and number information for players\
+      \ who were not drafted in the first round. The resulting table is ordered by\
+      \ the total plus-minus column and returned as the final result.\n\n**Technical\
+      \ Summary:**\n\nThe dbt model consists of two common table expressions (CTEs):\
+      \ `second_rounders` and `joined`.\n\nThe first CTE, `second_rounders`, selects\
+      \ all rows from the `source_common_player_info` table where the `DRAFT_ROUND`\
+      \ column is not equal to '1'. This CTE represents all players who were drafted\
+      \ in rounds other than the first round.\n\nThe second CTE, `joined`, joins the\
+      \ table `fct_player_stats_by_season` with the `second_rounders` CTE on the condition\
+      \ that the `player_id` in the former matches the `person_id` in the latter.\
+      \ The resulting table includes all columns from `pss` (player stats by season)\
+      \ table along with the `draft_round` and `draft_number` columns from the `second_rounders`\
+      \ CTE. The rows are ordered in descending order based on the `total_plus_minus`\
+      \ column.\n\nFinally, the main query selects all columns from the `joined` CTE\
+      \ and returns the result."
   - name: fct_player_stats_by_season
     columns:
       - name: player_id

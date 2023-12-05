@@ -15,7 +15,7 @@ games as (
 team_salaries as (
     select 
         full_name,
-        (total_cap + luxury_tax_bill) as total_team_spend
+        round((total_cap + luxury_tax_bill)) as total_team_spend
     from 
         {{ ref('source_team_salaries') }}
 ), 
@@ -35,6 +35,6 @@ joined as (
 
 select 
     *,
-    total_team_spend/WINS as cost_per_win
+    round(total_team_spend/WINS) as cost_per_win
 from 
     joined
