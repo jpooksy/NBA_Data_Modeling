@@ -1,16 +1,11 @@
-WITH source AS (
-    SELECT
+with source as (
+    select 
         *
-    FROM {% if target.name == "dev_duck_db" -%}
-            {{ ref('team_salaries') }}
-         {%- else -%}
-            {{ source(
-            "PUBLIC",
-            "TEAM_SALARIES"
-            ) }}
-         {%- endif %}
-
+    from 
+        {{multi_engine_ref(source_name = "public", table_name = "team_salaries")}}
 ),
+
+
 renamed AS (
     SELECT
         "TEAM" as full_name,
