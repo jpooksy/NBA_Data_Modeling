@@ -1,14 +1,8 @@
 with source as (
-    select *
-    from {% if target.name == "dev_duck_db" -%}
-            {{ ref('common_player_info') }}
-         {%- else -%}
-            {{ source(
-                "PUBLIC",
-                "COMMON_PLAYER_INFO"
-            ) }}
-         {%- endif %}
-
+    select 
+        *
+    from 
+        {{multi_engine_ref(source_name = "public", table_name = "common_player_info")}}
 ),
 
 renamed as (

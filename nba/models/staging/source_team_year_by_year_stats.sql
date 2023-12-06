@@ -1,11 +1,10 @@
-WITH source AS (
-    SELECT
+with source as (
+    select 
         *
-    FROM {{ source(
-            "PUBLIC",
-            "TEAM_YEAR_BY_YEAR_STATS"
-            ) }}
+    from 
+        {{multi_engine_ref(source_name = "public", table_name = "team_year_by_year_stats")}}
 ),
+
 
 renamed as (
     SELECT

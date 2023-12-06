@@ -1,15 +1,10 @@
-WITH source AS (
-    SELECT
+with source as (
+    select 
         *
-    FROM {% if target.name == "dev_duck_db" -%}
-            {{ ref('player_game_logs') }}
-         {%- else -%}
-            {{ source(
-            "PUBLIC",
-            "PLAYER_GAME_LOGS"
-            ) }}
-         {%- endif %}
+    from 
+        {{multi_engine_ref(source_name = "public", table_name = "player_game_logs")}}
 ),
+
 renamed AS (
     SELECT
         SEASON_YEAR,
