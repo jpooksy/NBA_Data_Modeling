@@ -35,9 +35,10 @@ Run the Python scripts located in the `extract` directory in your terminal or co
 Note: If you get stuck, you can download the `nba_compressed_CSVs`, but this only includes data from the 2022-23 NBA season
 
 ## Data Storage
-1. Refer to the provided code in the storage file.
+1. Snowflake -  Refer to the provided code in the storage file.
 2. For a more in-depth guide, check out Phil Dakin's SnowSQL tutorial.
 Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `storage` file I provided or you can follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
+3. [DuckDB](https://duckdb.org/) - I'm starting to use DuckDB for development and Snowflake for production. It's a work in progress! 
 
 ## Data Modeling
 Model your data using [Paradime.io](https://www.paradime.io/) or your preferred dbt platform/IDE.
