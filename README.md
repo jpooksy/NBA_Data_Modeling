@@ -41,7 +41,7 @@ Use SnowSQL to store data as tables in Snowflake. You can reference the code in 
 3. [DuckDB](https://duckdb.org/) - I'm starting to use DuckDB for development and Snowflake for production. It's a work in progress! 
 
 ## Data Modeling
-Model your data using [Paradime.io](https://www.paradime.io/) or your preferred dbt platform/IDE.
+[Paradime.io](https://www.paradime.io/) (dbt) - I love doing my dbt project in Paradime. Also, I work there 😃
 
 ## Insights so far:
 
