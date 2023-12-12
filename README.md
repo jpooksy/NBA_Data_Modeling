@@ -24,16 +24,15 @@ pip install nba_api
 
 Run the Python scripts located in the `extract` directory in your terminal or code editor of choice. These scripts will ingest data from various NBA API endpoints and save them as CSV files. Once executed, you will find the following CSV files in your `extract` folder:
 
-- `common_player_info.csv`: Information on each player from the 2022 NBA season.
-- `games.csv`: Statistics from each game played during the 2022 NBA season.
-- `player_game_logs.csv`: Detailed statistics per player per game from the 2022 NBA season.
-- `player_salaries_output.csv`: Salaries data for each player during the 2022 NBA season.
-- `team_game_logs.csv`: Game statistics for each team from the 2022 NBA season.
-- `team_salaries.csv`: Salary information for each team during the 2022 NBA season.
-- `team_year_by_year_stats.csv`: Year-by-year statistics for each team during the 2022 NBA season.
-- `teams.csv`: Information about each team from the 2022 NBA season.
+- `all_common_player_info.csv`: Information on each player from the 1950-2023 NBA season.
+- `games.csv`: Statistics from each game played during the 1950-2023 NBA season.
+- `player_game_logs.csv`: Detailed statistics per player per game from the 1970-2023 NBA season.
+- `player_salaries.csv`: Salaries data for each player during the 1990-2023 NBA season.
+- `team_spend.csv`: Salary information for each team during the 1990-2023 NBA season.
+- `team_year_by_year_stats.csv`: Year-by-year statistics for each team during the 1950-2023 NBA season.
+- `teams.csv`: Information about each team from the 1950-2023 NBA season.
 
-Note: If you get stuck, you can download the `nba_compressed_CSVs` and more on to the next step - Data Storage
+Note: If you get stuck, you can download the `nba_compressed_CSVs`, but this only includes data from the 2022-23 NBA season
 
 ## Data Storage
 1. Refer to the provided code in the storage file.
@@ -41,15 +40,9 @@ Note: If you get stuck, you can download the `nba_compressed_CSVs` and more on t
 Use SnowSQL to store data as tables in Snowflake. You can reference the code in the `storage` file I provided or you can follow along with [Phil Dakin's excellent SnowSQL tutorial](https://medium.com/@philipdakin/dbt-snowflake-basic-model-setup-845122814178).
 
 ## Data Modeling
-Model your data using [Paradime.io](https://www.paradime.io/) or your preferred dbt platform/IDE:
-1. Execute the SQL files located in the [Models](https://github.com/jpooksy/NBA_Data_Modeling/tree/f156aa2664eae0c26469aeb7181b8326a7d82a9e/nba/models) directory:
+Model your data using [Paradime.io](https://www.paradime.io/) or your preferred dbt platform/IDE.
 
-- [Sources](https://github.com/jpooksy/NBA_Data_Modeling/tree/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging):
-  - [source_player_game_logs.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_player_game_logs.sql): stats and details on every game from the 2022-23 nba season
-  - [source_player_salaries.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_player_salaries.sql): details on individual player salaries from the 2022-23 season and beyond.
-  - [source_team_salaries.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/staging/source_team_salaries.sql): details on individual team salaries during the 2022-23 season.
- 
-- [Warehouse](https://github.com/jpooksy/NBA_Data_Modeling/tree/39bb9f1360bb2d2352724bf0b818c4715bcafc33/nba/models/warehouse):
-  - [fct_player_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_player_season_stats.sql): Aggregate stats per player during the 2022-23 season.
-  - [fct_team_season_stats.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_team_season_stats.sql): Aggregate stats per nba team during the 2022-23 NBA season.
-  - [fct_opponent_stats_per_team.sql](https://github.com/jpooksy/NBA_Data_Modeling/blob/cc45da4cf7b2fdea6a5e74e861d98e366ed70c82/nba/models/warehouse/fct_opponent_stats_per_team.sql): Aggregate stats of all the opponents stats per NBA team during the 2022-23 season.
+## Insights so far:
+
+![image](https://github.com/jpooksy/NBA_Data_Modeling/assets/107123308/3b849e88-7207-4730-aaed-60eb6b476209)
+
