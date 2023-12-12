@@ -7,10 +7,11 @@ with source as (
 
 renamed as (
     select
-        person_id,
+        person_id as player_id,
         first_name,
         last_name,
         display_first_last as full_name,
+        DATE(birthdate) AS birthdate, 
         school,
         country,
         (CAST(SPLIT_PART(HEIGHT, '-', 1) AS INT) * 12) + CAST(SPLIT_PART(HEIGHT, '-', 2) AS INT) as height_in_inches,
@@ -30,7 +31,6 @@ renamed as (
     from
         source
 )
-
 select *
 from
     renamed

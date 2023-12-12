@@ -2,7 +2,7 @@ with player_stats_1 as (
     select 
         player_id,
         player_name,
-        season_quarter,
+        season,
     {# sum values #}
         sum(case when mins_played > 0 then 1 else 0 end) as games_played,
         sum(mins_played) as total_mins_played,
@@ -33,25 +33,11 @@ with player_stats_1 as (
         avg(personal_fouls) as avg_personal_fouls,
         avg(turnovers) as avg_turnovers,
         avg(points) as avg_points,
-        avg(plus_minus) as avg_plus_minus,
-    {# median values #}
-        median(mins_played) as median_mins_played,
-        median(field_goals_made) as median_field_goals_made,
-        median(field_goals_attempted) as median_field_goals_attempted,
-        median(three_point_made) as median_three_point_made,
-        median(three_point_attempted) as median_three_point_attempted,
-        median(free_throws_made) as median_free_throws_made,
-        median(free_throws_attempted) as median_free_throws_attempted,
-        median(total_rebounds) as median_rebounds,
-        median(steals) as median_steals,
-        median(personal_fouls) as median_personal_fouls,
-        median(turnovers) as median_turnovers,
-        median(points) as median_points,
-        median(plus_minus) as median_plus_minus
+        avg(plus_minus) as avg_plus_minus
 
-from {{ ref('intermediate_player_game_logs') }}
-group by 1,2,3
-order by 1
+    from {{ ref('source_player_game_logs') }}
+    where game_type = 'Playoffs'
+    group by 1,2,3
 ), 
 
 player_stats_2 as (
@@ -63,7 +49,7 @@ player_stats_2 as (
         coalesce(total_free_throws_made * 1.0 / nullif(total_free_throws_attempted, 0), 0) as free_throw_pct
     from 
         player_stats_1
-    order by 
-        season_quarter
+    order by player_id 
+
 )
 select * from player_stats_2

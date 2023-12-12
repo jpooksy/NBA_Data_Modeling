@@ -17,7 +17,7 @@ join
     second_rounders as sr
 
 on
-    pss.player_id = sr.person_id
+    pss.player_id = sr.player_id
 order by
     pss.total_plus_minus desc
 )
