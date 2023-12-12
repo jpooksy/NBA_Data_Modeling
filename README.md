@@ -9,6 +9,8 @@ This ongoingproject aims to provide a holistic approach to NBA data analysis. Cu
     - Conversion of this data to .csv format.
   - **Data Storage**:
     - Utilizing [SnowSQL](https://docs.snowflake.com/en/user-guide/snowsql) to persist .csv data as tables in Snowflake.
+  - **Data Modeling**:
+    - [Paradime.io](https://www.paradime.io/) (dbt) - Fantastic tool for all things dbt. Also, I work here 😃
 
 
 ## Prerequisites
