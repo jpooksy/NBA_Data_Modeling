@@ -2,6 +2,7 @@ with player_stats as (
     select 
         player_id, 
         player_name,
+        season,
         games_played,
         total_mins_played
     from {{ ref('fct_player_stats_by_season') }}
@@ -9,8 +10,10 @@ with player_stats as (
 
 salaries as (
     select 
-        full_name,
-        "2022_23_salary"
+        player_id,
+        player_name,
+        salary,
+        season
     from
         {{ ref('intermediate_player_salaries') }}
 ), 
@@ -18,19 +21,16 @@ salaries as (
 joined as (
     select 
         ps.*,
-        s."2022_23_salary",
-        s."2022_23_salary" / nullif(ps.games_played, 0) as salary_per_game_played,
-        s."2022_23_salary" / nullif(ps.total_mins_played, 0) as salary_per_minute_played
+        s.* EXCLUDE(player_id, player_name,season)
 from 
     player_stats ps
-join 
+left join 
     salaries s
-on  
-    ps.player_name = s.full_name
+    on ps.player_id = s.player_id
+    and ps.season = s.season
 )
 
 select 
     *
 from 
     joined
-

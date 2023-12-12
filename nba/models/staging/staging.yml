@@ -2,15 +2,13 @@
 
 sources:
   - name: PUBLIC
-    database: NBA_DEMO_SNOWFLAKE
+    database: NBA_HISTORICAL
     schema: PUBLIC
     tables:
       - name: COMMON_PLAYER_INFO
       - name: GAMES
       - name: PLAYER_GAME_LOGS
-      - name: PLAYER_SALARIES_OUTPUT
-      - name: TEAMS
-      - name: TEAM_SALARIES
-      - name: TEAM_YEAR_BY_YEAR_STATS
-
+      - name: PLAYER_SALARIES
+      - name: TEAM_SPEND
+      - name: TEAM_STATS
       

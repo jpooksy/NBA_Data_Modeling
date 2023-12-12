@@ -7,13 +7,13 @@ with source as (
 
 renamed as (
     select
-        season_id as season_id,
-        team_id as team_id,
-        team_abbreviation as team_abbreviation,
-        team_name as team_name,
-        game_id as game_id,
-        game_date as game_date,
-        matchup as matchup,
+        season_id,
+        team_id,
+        team_abbreviation,
+        team_name,
+        game_id,
+        game_date,
+        matchup,
         wl as win_loss,
         "MIN" as game_duration_mins,
         pts as points,
@@ -34,7 +34,9 @@ renamed as (
         blk as blocks,
         tov as turnovers,
         pf as personal_fouls,
-        plus_minus
+        plus_minus,
+        season,
+        game_type
     from
         source
 )
