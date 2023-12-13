@@ -1,0 +1,278 @@
+version: 2
+models:
+  - name: intermediate_game_date_details
+    columns:
+      - name: team_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: game_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: game_rank
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: game_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: season_month
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: season
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: game_type
+        description: ""
+        meta:
+          dimension:
+            type: string
+
+  - name: intermediate_player_game_logs
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: team_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: team_abbreviation
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: game_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: game_date
+        description: ""
+        meta:
+          dimension:
+            type: date
+      - name: matchup
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: win_loss
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: field_goals_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: three_point_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_made
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throws_attempted
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: offensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: defensive_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_rebounds
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: assists
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: turnovers
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: steals
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: blocks
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: personal_fouls
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: points
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: plus_minus
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: season
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: game_type
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: game_rank
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: season_month
+        description: ""
+        meta:
+          dimension:
+            type: number
+
+  - name: intermediate_player_salaries
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: salary
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: season
+        description: ""
+        meta:
+          dimension:
+            type: string
+
+  - name: intermediate_team_spend
+    columns:
+      - name: team_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: team_city
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: season
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: team_payroll
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: luxury_tax_bill
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: inflation_rate_calc
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: current_team_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: current_team_city
+        description: ""
+        meta:
+          dimension:
+            type: string
