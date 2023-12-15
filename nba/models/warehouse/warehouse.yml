@@ -712,7 +712,6 @@ models:
         meta:
           dimension:
             type: number
- 
   - name: dim_team_stats_by_season
     columns:
       - name: team_id
@@ -1116,7 +1115,6 @@ models:
         meta:
           dimension:
             type: number
-
   - name: fct_player_best_opponents
     columns:
       - name: player_id
@@ -1144,7 +1142,6 @@ models:
         meta:
           dimension:
             type: number
-
   - name: fct_player_stats_by_game
     columns:
       - name: player_id
@@ -1232,7 +1229,6 @@ models:
         meta:
           dimension:
             type: string
-
   - name: fct_player_stats_by_season
     columns:
       - name: player_id
@@ -1411,6 +1407,90 @@ models:
           dimension:
             type: number
       - name: free_throw_pct
+        description: ""
+        meta:
+          dimension:
+            type: number
+
+  - name: fct_player_efficiency_rating_one_hit_wonders
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: best_season
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: best_season_per
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: avg_per_excluding_best
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: per_difference
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: num_seasons
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: potential_injury_seasons
+        description: ""
+        meta:
+          dimension:
+            type: number
+
+  - name: fct_player_efficiency_rating_by_season
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: season
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: player_efficiency_rating
+        description: ""
+        meta:
+          dimension:
+            type: number
+
+  - name: fct_player_efficiency_rating_all_time
+    columns:
+      - name: player_id
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: player_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: player_efficiency_rating
         description: ""
         meta:
           dimension:

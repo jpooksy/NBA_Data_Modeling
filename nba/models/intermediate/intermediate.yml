@@ -42,7 +42,6 @@ models:
         meta:
           dimension:
             type: string
-
   - name: intermediate_player_game_logs
     columns:
       - name: player_id
@@ -51,41 +50,6 @@ models:
           dimension:
             type: number
       - name: player_name
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: team_id
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: team_abbreviation
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: team_name
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: game_id
-        description: ""
-        meta:
-          dimension:
-            type: number
-      - name: game_date
-        description: ""
-        meta:
-          dimension:
-            type: date
-      - name: matchup
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: win_loss
         description: ""
         meta:
           dimension:
@@ -145,11 +109,6 @@ models:
         meta:
           dimension:
             type: number
-      - name: total_rebounds
-        description: ""
-        meta:
-          dimension:
-            type: number
       - name: assists
         description: ""
         meta:
@@ -190,22 +149,36 @@ models:
         meta:
           dimension:
             type: string
-      - name: game_type
-        description: ""
-        meta:
-          dimension:
-            type: string
-      - name: game_rank
+      - name: field_goal_pct
         description: ""
         meta:
           dimension:
             type: number
-      - name: season_month
+      - name: rebounds
         description: ""
         meta:
           dimension:
             type: number
-
+      - name: avg_mins_played
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: win_counter
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: loss_counter
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: total_games_played_counter
+        description: ""
+        meta:
+          dimension:
+            type: number
   - name: intermediate_player_salaries
     columns:
       - name: player_id
@@ -228,7 +201,6 @@ models:
         meta:
           dimension:
             type: string
-
   - name: intermediate_team_spend
     columns:
       - name: team_id
