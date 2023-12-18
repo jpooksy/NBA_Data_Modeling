@@ -1003,6 +1003,26 @@ models:
         meta:
           dimension:
             type: number
+    description: "**Business Summary:**\n\nThe business summary of the model explanation\
+      \ is that it calculates several aggregated metrics for each team, including\
+      \ the average cost per win, average cost per win adjusted for inflation, average\
+      \ total spend, and average total spend adjusted for inflation. The data is filtered\
+      \ to include seasons between 1990 and 2022, and the results are grouped by team\
+      \ ID and current team name. The main query selects all columns from the `team_stats`\
+      \ CTE and orders the results by the average cost per win in ascending order.\n\
+      \n**Technical Summary:**\n\nThe dbt model is named `team_stats` and it is defined\
+      \ using a common table expression (CTE). The CTE retrieves data from the `dim_team_stats_by_season`\
+      \ table and calculates several aggregated metrics for each team.\n\nThese aggregated\
+      \ metrics include:\n- `avg_cost_per_win`: the average cost per win for each\
+      \ team, rounded to the nearest whole number.\n- `avg_cost_per_win_inflation_adj`:\
+      \ the average cost per win adjusted for inflation, rounded to the nearest whole\
+      \ number.\n- `avg_total_spend`: the average total spend for each team, rounded\
+      \ to the nearest whole number.\n- `avg_total_spend_inflation_adjusted`: the\
+      \ average total spend adjusted for inflation, rounded to the nearest whole number.\n\
+      \nThe data is filtered to include only seasons between 1990 and 2022. The results\
+      \ are then grouped by team_id and current_team_name and ordered by team_id.\n\
+      \nFinally, the main query selects all columns from the `team_stats` CTE and\
+      \ orders the results by the average cost per win in ascending order."
   - name: fct_team_stats_by_season
     columns:
       - name: team_id
