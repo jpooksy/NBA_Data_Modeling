@@ -8,7 +8,11 @@ sources:
       - name: COMMON_PLAYER_INFO
       - name: GAMES
       - name: PLAYER_GAME_LOGS
+        columns:
+          - name: min
+            tests: 
+              - unique
+              - not_null
       - name: PLAYER_SALARIES
       - name: TEAM_SPEND
       - name: TEAM_STATS
-      
