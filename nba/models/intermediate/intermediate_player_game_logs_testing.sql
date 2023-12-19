@@ -24,7 +24,7 @@ WITH player_game_logs AS (
         COALESCE(turnovers, 0) AS turnovers,
         COALESCE(points, 0) AS points,
         COALESCE(plus_minus, 0) AS plus_minus,
-        COALESCE(mins_played, 0) AS minutes_played
+        COALESCE(mins_played, 0) AS mins_played
     FROM 
         {{ ref('source_player_game_logs') }}
     --  where player_id = 202391
