@@ -30,6 +30,8 @@ WITH intermediate_player_game_logs AS (
        total_games_played_counter  >= 15
         and 
             TO_NUMBER(SUBSTRING(season, 1, 4)) > 1976
+                and 
+                    mins_played >= 1000
 ),
 
 player_efficiency AS (
@@ -81,13 +83,31 @@ player_efficiency AS (
         total_games_played_counter
     FROM
         intermediate_player_game_logs
+),
+
+player_salaries as (
+    select 
+        player_id,
+        season,
+        salary
+    FROM 
+        {{ ref('intermediate_player_salaries') }}
 )
 
 SELECT 
-    player_id, 
-    player_name, 
-    season,
-    sum(player_efficiency_rating) as player_efficiency_rating
+    pe.player_id, 
+    pe.player_name, 
+    pe.season,
+    pe.player_efficiency_rating,
+    ps.salary,
+    CASE 
+        WHEN pe.player_efficiency_rating > 0 THEN ps.salary / pe.player_efficiency_rating
+        ELSE NULL -- Handle division by zero efficiency by returning NULL or a suitable value
+    END AS salary_per_efficiency_unit
 FROM
-    player_efficiency
-group by player_id, player_name, season
+    player_efficiency pe
+JOIN player_salaries ps 
+    on pe.player_id = ps.player_id
+    and ps.season = pe.season
+ORDER BY 
+    salary_per_efficiency_unit DESC

@@ -26,7 +26,7 @@ WITH intermediate_player_game_logs AS (
     FROM 
         {{ ref('intermediate_player_game_logs') }}
     where 
-       TO_NUMBER(SUBSTRING(season, 1, 4)) > 1976
+       TO_NUMBER(SUBSTRING(season, 1, 4)) > 1980
     group by 
         player_id, player_name
 ),

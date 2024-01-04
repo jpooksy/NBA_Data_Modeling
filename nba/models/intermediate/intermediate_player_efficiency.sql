@@ -1,0 +1,142 @@
+--  with league_stats as (
+--      select 
+--          season,
+--          SUM(free_throws_made) AS lg_FT,
+--          SUM(free_throws_attempted) AS lg_FTA,
+--          SUM(turnovers) AS lg_TO,
+--          SUM(field_goals_made) AS lg_FG,
+--          SUM(field_goals_attempted) AS lg_FGA,
+--          SUM(total_rebounds) AS lg_TRB,
+--          SUM(offensive_rebounds) as lg_ORB,
+--          SUM(assists) AS lg_AST,
+--          SUM(personal_fouls) AS lg_PF,
+--          ((SUM(total_rebounds) - SUM(offensive_rebounds)) / SUM(total_rebounds)) as lg_DRBP,
+--          SUM(points) as lg_PTS
+--      from 
+--          {{ ref('source_team_stats') }}
+--      where 
+--          TO_NUMBER(SUBSTRING(season, 1, 4)) BETWEEN 1980 AND 2022
+--      group by 
+--          season
+--  ),
+
+--  team_stats as (
+--      select 
+--          season,
+--          team_id,
+--          team_name,
+--          max(field_goals_made) AS team_FG,
+--          max(assists) AS team_AST,
+--          max(defensive_rebounds) as team_DRB
+--      from 
+--          {{ ref('source_team_stats') }}
+--      where 
+--          TO_NUMBER(SUBSTRING(season, 1, 4)) BETWEEN 1980 AND 2022
+--      group by 
+--          season,team_id,team_name
+--  ),
+
+--  player_season_stats as (
+--      select  
+--          player_id,
+--          player_name,
+--          season,
+--          team_id,
+--          SUM(mins_played) as MP,
+--          SUM(three_point_made) as "3P",
+--          SUM(assists) as AST,
+--          SUM(field_goals_made) as FG,
+--          SUM(turnovers) as TOV,
+--          SUM(free_throws_made) as FT,
+--          SUM(offensive_rebounds) as ORB,
+--          SUM(blocks) as BLK,
+--          SUM(free_throws_attempted) as FTA,
+--          SUM(field_goals_attempted) as FGA,
+--          SUM(total_rebounds) as TRB,
+--          SUM(personal_fouls) as PF,
+--          SUM(steals) as STL,
+--          SUM(defensive_rebounds) as DRB
+--      from
+--          {{ ref('source_player_game_logs') }}
+--      where 
+--          game_type = 'Regular Season'
+--          and 
+--              TO_NUMBER(SUBSTRING(season, 1, 4)) BETWEEN 1980 AND 2022
+--          AND
+--              mins_played > 0
+--      group by 
+--          player_id, player_name, season, team_id
+--  ),
+
+--  joined AS (
+--      SELECT 
+--          ps.player_id,
+--          ps.player_name,
+--          ps.season,
+--          ps.team_id,
+--          ts.team_name,
+--          ps.MP,
+--          ps."3P",
+--          ps.AST,
+--          ps.FG,
+--          ps.TOV,
+--          ps.FT,
+--          ps.ORB,
+--          ps.BLK,
+--          ps.FTA,
+--          ps.FGA,
+--          ps.TRB,
+--          ps.PF,
+--          ps.STL,
+--          ps.DRB,
+--          ts.team_FG,
+--          ts.team_AST,
+--          ts.team_DRB,
+--          l.lg_FT,
+--          l.lg_FTA,
+--          l.lg_TO,
+--          l.lg_FG,
+--          l.lg_FGA,
+--          l.lg_TRB,
+--          l.lg_ORB,
+--          l.lg_AST,
+--          l.lg_PF,
+--          l.lg_DRBP,
+--          l.lg_PTS
+--      FROM 
+--          player_season_stats ps
+--      JOIN 
+--          team_stats ts ON ps.team_id = ts.team_id AND ps.season = ts.season
+--      JOIN
+--          league_stats l on ps.season = l.season
+--  ),
+
+--  player_per_prep AS (
+--      SELECT 
+--          *,
+--          (2.0 / 3) - ((0.5 * (lg_AST / NULLIF(lg_FG, 0))) / (2 * (NULLIF(lg_FG, 0) / NULLIF(lg_FT, 0)))) as factor,
+--          lg_PTS / (lg_FGA - lg_ORB + lg_TO + 0.44 * lg_FTA) as VOP
+--      FROM 
+--          joined
+--  )
+--  ,
+
+--  player_per as (
+--      select 
+--          *,
+--          ( 1 / NULLIF(MP, 0) ) * ( "3P" + ( 2 / 3 ) * AST + ( 2 - factor * ( team_AST / team_FG ) ) * FG + 
+--          ( FT * 0.5 * ( 1 + ( 1 - ( team_AST / team_FG ) ) + ( 2 / 3 ) * ( team_AST / team_FG ) ) ) - 
+--          VOP * TOV - VOP * lg_DRBP * ( FGA - FG ) - VOP * 0.44 * ( 0.44 + ( 0.56 * lg_DRBP ) ) * 
+--          ( FTA - FT ) + VOP * ( 1 - lg_DRBP ) * ( TRB - ORB ) + VOP * lg_DRBP * ORB + VOP * STL + 
+--          VOP * lg_DRBP * BLK - PF * ( ( lg_FT / lg_PF ) - 0.44 * ( lg_FTA / lg_PF ) * VOP ) ) as PER
+--      from
+--          player_per_prep
+--  )
+--  SELECT
+--      *,
+--      (PER * (99.97 / 101.63)) as PER_adj
+--  FROM 
+--      player_per
+--  where player_id = 2544
+--  ORDER BY 
+--      season

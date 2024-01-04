@@ -29,6 +29,8 @@ with player_game_logs_agg as (
         sum(case when mins_played = 0 then 0 else 1 end) as total_games_played_counter
     from 
         {{ ref('source_player_game_logs') }}
+    where 
+        game_type = 'Regular Season'
     group by 
         player_id, player_name, season
 ),

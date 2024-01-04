@@ -59,28 +59,7 @@ player_efficiency AS (
                     )   
                     * (1 / mins_played)
                 )
-        END AS player_efficiency_rating,
-        field_goals_made,
-        field_goals_attempted,
-        field_goal_pct,
-        three_point_made,
-        three_point_attempted,
-        three_point_pct,
-        free_throws_made,
-        free_throws_attempted,
-        free_throw_pct,
-        rebounds,
-        offensive_rebounds,
-        defensive_rebounds,
-        assists,
-        blocks,
-        steals,
-        personal_fouls,
-        turnovers,
-        mins_played,
-        win_counter,
-        loss_counter,
-        total_games_played_counter
+        END AS player_efficiency_rating
     FROM
         intermediate_player_game_logs
 ),
@@ -98,7 +77,7 @@ season_count AS (
         COUNT(DISTINCT season) > 5 -- Players with more than 5 seasons
 ),
 
-best_season AS (
+ranked_seasons AS (
     SELECT 
         player_id, 
         player_name,
@@ -109,41 +88,64 @@ best_season AS (
         player_efficiency
 ),
 
-average_efficiency_excluding_best AS (
+season_pairs AS (
     SELECT 
-        pe.player_id,
-        pe.player_name,
-        AVG(pe.player_efficiency_rating) as avg_per_excluding_best
+        r1.player_id,
+        r1.player_name,
+        r1.season as best_season,
+        r1.player_efficiency_rating as best_season_per,
+        r2.season as second_best_season,
+        r2.player_efficiency_rating as second_best_season_per
     FROM 
-        player_efficiency pe
-    LEFT JOIN 
-        best_season bs ON pe.player_id = bs.player_id AND pe.season = bs.season
+        ranked_seasons r1
+    JOIN 
+        ranked_seasons r2 ON r1.player_id = r2.player_id AND r2.rank = 2
     WHERE 
-        bs.rank IS NULL OR bs.rank > 1
-    GROUP BY 
-        pe.player_id, pe.player_name
+        r1.rank = 1
 ),
+
+per_by_season AS (
+    SELECT 
+        player_id,
+        ARRAY_AGG(season || ':' || player_efficiency_rating) AS per_by_year
+    FROM 
+        (
+            SELECT 
+                player_id, 
+                season, 
+                player_efficiency_rating
+            FROM 
+                player_efficiency
+            ORDER BY 
+                player_id, season
+        )
+    GROUP BY 
+        player_id
+),
+
+
+
 joined AS (
     SELECT 
-        bs.player_id,
-        bs.player_name,
-        bs.season as best_season,
-        bs.player_efficiency_rating as best_season_per,
-        ae.avg_per_excluding_best,
-        bs.player_efficiency_rating - ae.avg_per_excluding_best as per_difference,
+        sp.player_id,
+        sp.player_name,
+        sp.best_season,
+        sp.best_season_per,
+        sp.second_best_season,
+        sp.second_best_season_per,
+        pbs.per_by_year,
         sc.num_seasons,
         sc.potential_injury_seasons
     FROM 
-        best_season bs
+        season_pairs sp
     JOIN 
-        average_efficiency_excluding_best ae ON bs.player_id = ae.player_id
+        season_count sc ON sp.player_id = sc.player_id
     JOIN 
-        season_count sc ON bs.player_id = sc.player_id
+        per_by_season pbs ON sp.player_id = pbs.player_id
     WHERE 
-        bs.rank = 1
-        AND bs.player_efficiency_rating >= 18 -- Define the 'great' threshold
-        AND ae.avg_per_excluding_best <= 13 -- Define the 'terrible' threshold
-        AND sc.num_seasons > 5 -- Players with more than 5 seasons
+        sp.best_season_per >= 18 
+        AND sp.second_best_season_per <= 14
+        AND sc.num_seasons > 3
 )
 
 SELECT * FROM joined
